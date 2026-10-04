@@ -1,0 +1,15 @@
+# dados do professor e caches grandes (recalculaveis)
+/train.xlsx
+/test1.xlsx
+dados/*.npz
+dados/*.npy
+dados/*.pkl
+resultados/*.npz
+resultados/*.npy
+resposta_dimitri/bertimbau_model/
+entrega_EP1.zip
+__pycache__/
+resposta_dimitri/
+# material do professor (nao redistribuir)
+ep1-enunciado.pdf
+ep1-modelo-relatorio.pdf

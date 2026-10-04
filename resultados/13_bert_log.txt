@@ -1,0 +1,16 @@
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights:   8%|7         | 16/201 [00:00<00:01, 156.81it/s]Loading weights:  16%|#5        | 32/201 [00:00<00:01, 88.57it/s] Loading weights:  40%|####      | 81/201 [00:00<00:00, 201.31it/s]Loading weights:  52%|#####2    | 105/201 [00:00<00:00, 200.59it/s]Loading weights:  64%|######3   | 128/201 [00:00<00:00, 149.91it/s]Loading weights: 100%|##########| 201/201 [00:00<00:00, 231.57it/s]
+16/5119 textos em 7s
+176/5119 textos em 56s
+336/5119 textos em 105s
+496/5119 textos em 161s
+656/5119 textos em 219s
+816/5119 textos em 281s
+976/5119 textos em 335s
+1136/5119 textos em 393s
+1296/5119 textos em 450s
+1456/5119 textos em 505s
+1616/5119 textos em 562s
+1776/5119 textos em 624s
+1936/5119 textos em 687s
+2096/5119 textos em 737s
+2256/5119 textos em 783s

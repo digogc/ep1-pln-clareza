@@ -1,0 +1,24 @@
+corpus pronto em 7s | tfidf (20992, 336978) | 87 atributos | embeddings ['e5small']
+                                                  modelo     cv  cv_desvio  holdout
+                 so TF-IDF + SVM | palavras 1-2 | C=0.01 0.4412     0.0079   0.4528
+                 so TF-IDF + SVM | palavras 1-2 | C=0.03 0.4559     0.0060   0.4713
+                  so TF-IDF + SVM | palavras 1-2 | C=0.1 0.4645     0.0030   0.4847
+                  so TF-IDF + SVM | palavras 1-2 | C=0.3 0.4615     0.0024   0.4780
+                  so TF-IDF + SVM | palavras 1-2 | C=1.0 0.4539     0.0046   0.4603
+so TF-IDF + SVM | palavras 1-2 + caracteres 2-5 | C=0.01 0.4510     0.0088   0.4653
+so TF-IDF + SVM | palavras 1-2 + caracteres 2-5 | C=0.03 0.4632     0.0070   0.4715
+ so TF-IDF + SVM | palavras 1-2 + caracteres 2-5 | C=0.1 0.4621     0.0048   0.4733
+ so TF-IDF + SVM | palavras 1-2 + caracteres 2-5 | C=0.3 0.4565     0.0047   0.4693
+ so TF-IDF + SVM | palavras 1-2 + caracteres 2-5 | C=1.0 0.4491     0.0030   0.4566
+                                 MODELO FINAL (stacking) 0.4680     0.0069   0.4750
+
+melhor SVM na validacao cruzada: ('palavras 1-2', 0.1)
+  dobra 0: SVM 0.4628 | final 0.4725
+  dobra 1: SVM 0.4685 | final 0.4678
+  dobra 2: SVM 0.4644 | final 0.4684
+  dobra 3: SVM 0.4599 | final 0.4555
+  dobra 4: SVM 0.4669 | final 0.4759
+  respostas em que so um acerta: final 1068 x SVM 998
+  acerto na classe c1: SVM 0.4659 | final 0.5152
+  acerto na classe c234: SVM 0.3544 | final 0.3190
+  acerto na classe c5: SVM 0.5727 | final 0.5727

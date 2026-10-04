@@ -1,0 +1,4 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights:  26%|##6       | 26/100 [00:00<00:00, 239.25it/s]Loading weights: 100%|##########| 100/100 [00:00<00:00, 636.58it/s]
+  distiluse: 2000/20992 em 189s
+  distiluse: 4000/20992 em 361s

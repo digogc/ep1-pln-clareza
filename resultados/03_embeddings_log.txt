@@ -1,0 +1,43 @@
+   spaCy: 31632 de 51345 palavras do corpus tem vetor pre-treinado
+   embedding spacy_media: (20992, 300) em 77s
+spacy_media  LR  {'C': 0.001}                           val=0.4176 treino=0.4443 (3s)
+spacy_media  LR  {'C': 0.01}                            val=0.4214 treino=0.4598 (3s)
+spacy_media  LR  {'C': 0.1}                             val=0.4217 treino=0.4640 (4s)
+spacy_media  LR  {'C': 1}                               val=0.4200 treino=0.4644 (4s)
+   embedding spacy_idf: (20992, 300) em 13s
+spacy_idf    LR  {'C': 0.001}                           val=0.4205 treino=0.4509 (2s)
+spacy_idf    LR  {'C': 0.01}                            val=0.4211 treino=0.4591 (2s)
+spacy_idf    LR  {'C': 0.1}                             val=0.4201 treino=0.4612 (3s)
+spacy_idf    LR  {'C': 1}                               val=0.4196 treino=0.4611 (3s)
+spacy_idf    MLP {'camadas': (256,), 'alpha': 0.01}     val=0.4170 treino=0.5463 (9s)
+spacy_idf    MLP {'camadas': (256,), 'alpha': 1.0}      val=0.4200 treino=0.4968 (10s)
+spacy_idf    MLP {'camadas': (512, 256), 'alpha': 1.0}  val=0.4139 treino=0.4599 (26s)
+   embedding w2v_idf: (20992, 200) em 256s
+w2v_idf      LR  {'C': 0.001}                           val=0.4305 treino=0.4552 (1s)
+w2v_idf      LR  {'C': 0.01}                            val=0.4256 treino=0.4580 (1s)
+w2v_idf      LR  {'C': 0.1}                             val=0.4262 treino=0.4585 (1s)
+w2v_idf      LR  {'C': 1}                               val=0.4250 treino=0.4584 (1s)
+w2v_idf      MLP {'camadas': (256,), 'alpha': 0.01}     val=0.4268 treino=0.5675 (7s)
+w2v_idf      MLP {'camadas': (256,), 'alpha': 1.0}      val=0.4315 treino=0.5090 (7s)
+w2v_idf      MLP {'camadas': (512, 256), 'alpha': 1.0}  val=0.4363 treino=0.4820 (29s)
+   embedding doc2vec: (20992, 200) em 99s
+doc2vec      LR  {'C': 0.001}                           val=0.4338 treino=0.4569 (1s)
+doc2vec      LR  {'C': 0.01}                            val=0.4341 treino=0.4608 (1s)
+doc2vec      LR  {'C': 0.1}                             val=0.4329 treino=0.4610 (1s)
+doc2vec      LR  {'C': 1}                               val=0.4326 treino=0.4612 (1s)
+   embedding lsa: (20992, 300) em 38s
+lsa          LR  {'C': 0.001}                           val=0.4455 treino=0.4813 (1s)
+lsa          LR  {'C': 0.01}                            val=0.4465 treino=0.4818 (1s)
+lsa          LR  {'C': 0.1}                             val=0.4460 treino=0.4816 (1s)
+lsa          LR  {'C': 1}                               val=0.4459 treino=0.4817 (1s)
+   embedding tudo: (20992, 1000) em 0s
+tudo         LR  {'C': 0.001}                           val=0.4456 treino=0.5196 (5s)
+tudo         LR  {'C': 0.01}                            val=0.4420 treino=0.5346 (10s)
+tudo         LR  {'C': 0.1}                             val=0.4382 treino=0.5367 (13s)
+tudo         LR  {'C': 1}                               val=0.4359 treino=0.5370 (14s)
+tudo         MLP {'camadas': (256,), 'alpha': 0.01}     val=0.4314 treino=0.6484 (19s)
+tudo         MLP {'camadas': (256,), 'alpha': 1.0}      val=0.4304 treino=0.5870 (17s)
+tudo         MLP {'camadas': (512, 256), 'alpha': 1.0}  val=0.4426 treino=0.5452 (75s)
+
+MELHOR: lsa + LR {'C': 0.01} val=0.4465
+teste rotulado em /home/claude/ep1/predicoes/test1_embeddings.xlsx | distribuicao: {0: 262, 1: 294, 2: 344}

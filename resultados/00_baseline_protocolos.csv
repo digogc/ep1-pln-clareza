@@ -1,0 +1,10 @@
+protocolo,acc,desvio,obs
+5 dobras AGRUPADAS por texto (dados/folds.csv),0.4454990672447427,0.007620890669447406,
+5 dobras estratificadas comuns (seed=0),0.45530538057715153,0.007325168580414932,
+5 dobras estratificadas comuns (seed=1),0.45664974150287374,0.00561803012826417,
+5 dobras estratificadas comuns (seed=42),0.457196967961169,0.005692491726826011,
+"5 dobras comuns, texto bruto (sem limpar espacos)",0.457196967961169,0.005692491726826011,
+10 dobras estratificadas comuns (seed=42),0.4591884281925365,0.009366107923416531,
+5 dobras SEM embaralhar (KFold padrao do cross_val_score),0.4573956508971633,0.007077982206720058,
+holdout 20% (10 sementes),0.4527992037820353,0.005614474746055985,min 0.4402 max 0.4618
+holdout 10% (10 sementes),0.45497512437810944,0.008660861362566392,min 0.4343 max 0.4657

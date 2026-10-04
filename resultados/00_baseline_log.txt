@@ -1,0 +1,13 @@
+5 dobras AGRUPADAS por texto (dados/folds.csv)                 0.4455 +- 0.0076 
+5 dobras estratificadas comuns (seed=0)                        0.4553 +- 0.0073 
+5 dobras estratificadas comuns (seed=1)                        0.4566 +- 0.0056 
+5 dobras estratificadas comuns (seed=42)                       0.4572 +- 0.0057 
+5 dobras comuns, texto bruto (sem limpar espacos)              0.4572 +- 0.0057 
+10 dobras estratificadas comuns (seed=42)                      0.4592 +- 0.0094 
+5 dobras SEM embaralhar (KFold padrao do cross_val_score)      0.4574 +- 0.0071 
+holdout 20% (10 sementes)                                      0.4528 +- 0.0056 min 0.4402 max 0.4618
+holdout 10% (10 sementes)                                      0.4550 +- 0.0087 min 0.4343 max 0.4657
+
+linhas com copia do proprio texto no treino da dobra (dobras comuns): 2294 (11.4%)
+  dobras comuns   : com copia 0.4856 | sem copia 0.4535
+  dobras agrupadas: repetidas 0.4542 | unicas    0.4443

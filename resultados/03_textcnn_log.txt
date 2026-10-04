@@ -1,0 +1,15 @@
+congelado_f100   epoca 1: val=0.3961 treino=0.4023
+congelado_f100   epoca 2: val=0.4144 treino=0.4250
+congelado_f100   epoca 3: val=0.4161 treino=0.4318
+congelado_f100   epoca 4: val=0.4282 treino=0.4452
+congelado_f100   epoca 5: val=0.4243 treino=0.4477
+congelado_f100 ok em 705s
+ajustado_f100    epoca 1: val=0.4133 treino=0.4247
+ajustado_f100    epoca 2: val=0.4409 treino=0.4839
+ajustado_f100    epoca 3: val=0.4459 treino=0.5396
+ajustado_f100    epoca 4: val=0.4494 treino=0.6105
+ajustado_f100    epoca 5: val=0.4386 treino=0.6841
+ajustado_f100 ok em 972s
+
+MELHOR: ajustado_f100 com 4 epocas val=0.4494
+teste rotulado em /home/claude/ep1/predicoes/test1_textcnn.xlsx | distribuicao: {0: 349, 1: 150, 2: 401}

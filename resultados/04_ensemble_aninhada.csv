@@ -1,0 +1,6 @@
+dobra,modelos,memoria,C,acc
+0,tfidf + atributos,True,1.0,0.474719800747198
+1,tfidf + textcnn,True,0.1,0.4602583209140586
+2,tfidf + atributos,True,1.0,0.4592039800995025
+3,tfidf + atributos,True,0.1,0.45332337565347275
+4,tfidf + lsa + textcnn,True,0.01,0.4526656701544594

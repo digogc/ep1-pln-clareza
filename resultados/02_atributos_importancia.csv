@@ -1,0 +1,88 @@
+atributo,grupo,ganho_%
+sigla_principal,"orgao, datas e repeticao",14.13
+frac_maiusculas,tamanho e estrutura,3.74
+m_anexo_por_100,marcadores de conteudo,3.04
+riqueza_lexical,legibilidade e vocabulario,2.73
+frac_palavras_longas,legibilidade e vocabulario,2.4
+zipf_p10,legibilidade e vocabulario,2.39
+n_palavras,tamanho e estrutura,2.38
+flesch_pt,legibilidade e vocabulario,2.33
+letras_por_palavra,legibilidade e vocabulario,2.15
+m_despedida_por_100,marcadores de conteudo,2.13
+palavras_por_frase,legibilidade e vocabulario,2.12
+frac_digitos,tamanho e estrutura,1.98
+m_lei_por_100,marcadores de conteudo,1.94
+frac_pontuacao,tamanho e estrutura,1.94
+repeticoes_do_final,"orgao, datas e repeticao",1.86
+silabas_por_palavra,legibilidade e vocabulario,1.83
+m_sic_por_100,marcadores de conteudo,1.81
+repeticoes_do_inicio,"orgao, datas e repeticao",1.79
+m_lai_por_100,marcadores de conteudo,1.79
+frac_palavras_raras,legibilidade e vocabulario,1.77
+repeticoes_do_texto,"orgao, datas e repeticao",1.75
+zipf_medio,legibilidade e vocabulario,1.75
+log_palavras,tamanho e estrutura,1.73
+n_caracteres,tamanho e estrutura,1.63
+quebras_por_100_palavras,tamanho e estrutura,1.6
+m_lei,marcadores de conteudo,1.57
+m_redireciona_por_100,marcadores de conteudo,1.52
+m_link_por_100,marcadores de conteudo,1.5
+frac_palavras_desconhecidas,legibilidade e vocabulario,1.45
+m_informamos_por_100,marcadores de conteudo,1.41
+n_siglas,"orgao, datas e repeticao",1.4
+m_recurso_por_100,marcadores de conteudo,1.27
+m_segue_por_100,marcadores de conteudo,1.21
+m_nao_possui_por_100,marcadores de conteudo,1.19
+m_lai,marcadores de conteudo,1.15
+m_prazo_por_100,marcadores de conteudo,1.1
+n_frases,tamanho e estrutura,1.05
+n_quebras,tamanho e estrutura,1.0
+m_anexo,marcadores de conteudo,0.99
+ano_min,"orgao, datas e repeticao",0.98
+m_agradece_por_100,marcadores de conteudo,0.8
+orgao_protocolo,"orgao, datas e repeticao",0.78
+m_trabalho_adicional_por_100,marcadores de conteudo,0.78
+m_tabela_dados_por_100,marcadores de conteudo,0.76
+ano_max,"orgao, datas e repeticao",0.76
+m_juridiques_por_100,marcadores de conteudo,0.74
+m_email_por_100,marcadores de conteudo,0.71
+m_link,marcadores de conteudo,0.7
+m_sigilo_por_100,marcadores de conteudo,0.65
+m_redireciona,marcadores de conteudo,0.63
+m_saudacao_generica_por_100,marcadores de conteudo,0.6
+n_parenteses,tamanho e estrutura,0.59
+m_nao_possui,marcadores de conteudo,0.56
+n_anos_citados,"orgao, datas e repeticao",0.55
+m_sic,marcadores de conteudo,0.5
+m_trabalho_adicional,marcadores de conteudo,0.46
+m_negativa_por_100,marcadores de conteudo,0.42
+m_informamos,marcadores de conteudo,0.41
+m_nao_compete_por_100,marcadores de conteudo,0.37
+n_interrogacoes,tamanho e estrutura,0.37
+m_telefone_por_100,marcadores de conteudo,0.37
+n_aspas,tamanho e estrutura,0.31
+saudacao_com_nome,marcadores de conteudo,0.29
+m_juridiques,marcadores de conteudo,0.26
+m_recurso,marcadores de conteudo,0.26
+m_desculpa_por_100,marcadores de conteudo,0.25
+m_negativa,marcadores de conteudo,0.25
+m_segue,marcadores de conteudo,0.23
+m_prazo,marcadores de conteudo,0.21
+m_agradece,marcadores de conteudo,0.2
+m_tabela_dados,marcadores de conteudo,0.19
+m_saudacao_generica,marcadores de conteudo,0.17
+m_sigilo,marcadores de conteudo,0.17
+n_itens_numerados,tamanho e estrutura,0.16
+m_nao_compete,marcadores de conteudo,0.15
+m_telefone,marcadores de conteudo,0.14
+ano_protocolo,"orgao, datas e repeticao",0.14
+comeca_com_prezado,marcadores de conteudo,0.13
+m_email,marcadores de conteudo,0.12
+m_despedida,marcadores de conteudo,0.09
+n_valores_reais,tamanho e estrutura,0.08
+tem_protocolo,"orgao, datas e repeticao",0.05
+m_satisfacao_por_100,marcadores de conteudo,0.05
+m_desculpa,marcadores de conteudo,0.05
+m_satisfacao,marcadores de conteudo,0.02
+m_pede_esclarecimento,marcadores de conteudo,0.01
+m_pede_esclarecimento_por_100,marcadores de conteudo,0.01

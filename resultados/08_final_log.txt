@@ -1,0 +1,14 @@
+corpus pronto em 6s | tfidf (20992, 336978) | 87 atributos | embeddings ['e5small', 'minilm']
+  emb_minilm: acuracia fora da dobra 0.4269 (11s)
+
+MODELO FINAL ['lr_pal', 'svc', 'emb_minilm', 'extremos'], meta C=0.1
+  validacao cruzada: 0.4698 +- 0.0062 | por dobra [0.467  0.4735 0.4756 0.4589 0.4739]
+  baseline oficial : 0.4554 +- 0.0050 | por dobra [0.4591 0.4528 0.4552 0.4477 0.4622]
+  diferenca por dobra: [0.008  0.0207 0.0204 0.0112 0.0117]
+  linhas em que so um acerta: modelo 1546 x baseline 1257
+  matriz de confusao (linhas = real, colunas = previsto):
+        c1  c234    c5
+c1    3255  1595  1497
+c234  2121  2212  2520
+c5    1289  1631  3972
+teste rotulado em entrega/test1.xlsx | distribuicao: {'c1': 294, 'c234': 264, 'c5': 342}

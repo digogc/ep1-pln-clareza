@@ -1,0 +1,53 @@
+87 atributos calculados em 47s
+{'learning_rate': 0.03, 'num_leaves': 7, 'min_child_samples': 20, 'colsample_bytree': 0.3} -> melhor n=600 val=0.4260 treino=0.5418 (37s)
+{'learning_rate': 0.03, 'num_leaves': 7, 'min_child_samples': 20, 'colsample_bytree': 0.6} -> melhor n=200 val=0.4233 treino=0.4845 (31s)
+{'learning_rate': 0.03, 'num_leaves': 7, 'min_child_samples': 60, 'colsample_bytree': 0.3} -> melhor n=600 val=0.4248 treino=0.5375 (36s)
+{'learning_rate': 0.03, 'num_leaves': 7, 'min_child_samples': 60, 'colsample_bytree': 0.6} -> melhor n=600 val=0.4228 treino=0.5402 (32s)
+{'learning_rate': 0.03, 'num_leaves': 15, 'min_child_samples': 20, 'colsample_bytree': 0.3} -> melhor n=200 val=0.4266 treino=0.5434 (44s)
+{'learning_rate': 0.03, 'num_leaves': 15, 'min_child_samples': 20, 'colsample_bytree': 0.6} -> melhor n=200 val=0.4249 treino=0.5476 (44s)
+{'learning_rate': 0.03, 'num_leaves': 15, 'min_child_samples': 60, 'colsample_bytree': 0.3} -> melhor n=200 val=0.4258 treino=0.5389 (43s)
+{'learning_rate': 0.03, 'num_leaves': 15, 'min_child_samples': 60, 'colsample_bytree': 0.6} -> melhor n=200 val=0.4260 treino=0.5427 (45s)
+{'learning_rate': 0.03, 'num_leaves': 31, 'min_child_samples': 20, 'colsample_bytree': 0.3} -> melhor n=200 val=0.4272 treino=0.6369 (59s)
+{'learning_rate': 0.03, 'num_leaves': 31, 'min_child_samples': 20, 'colsample_bytree': 0.6} -> melhor n=400 val=0.4260 treino=0.7496 (61s)
+{'learning_rate': 0.03, 'num_leaves': 31, 'min_child_samples': 60, 'colsample_bytree': 0.3} -> melhor n=100 val=0.4279 treino=0.5605 (59s)
+{'learning_rate': 0.03, 'num_leaves': 31, 'min_child_samples': 60, 'colsample_bytree': 0.6} -> melhor n=100 val=0.4269 treino=0.5676 (65s)
+{'learning_rate': 0.03, 'num_leaves': 63, 'min_child_samples': 20, 'colsample_bytree': 0.3} -> melhor n=100 val=0.4274 treino=0.6668 (84s)
+{'learning_rate': 0.03, 'num_leaves': 63, 'min_child_samples': 20, 'colsample_bytree': 0.6} -> melhor n=100 val=0.4261 treino=0.6815 (93s)
+{'learning_rate': 0.03, 'num_leaves': 63, 'min_child_samples': 60, 'colsample_bytree': 0.3} -> melhor n=100 val=0.4251 treino=0.6471 (87s)
+{'learning_rate': 0.03, 'num_leaves': 63, 'min_child_samples': 60, 'colsample_bytree': 0.6} -> melhor n=100 val=0.4262 treino=0.6626 (98s)
+
+MELHOR LightGBM: {'learning_rate': 0.03, 'num_leaves': 31, 'min_child_samples': 60, 'colsample_bytree': 0.3} n_estimators=100 val=0.4279
+{'grupo': 'so tamanho e estrutura', 'n_atributos': 14, 'acc_val_media': np.float64(0.39896781581894314), 'acc_val_desvio': np.float64(0.0050940592284913055)}
+{'grupo': 'so legibilidade e vocabulario', 'n_atributos': 10, 'acc_val_media': np.float64(0.39503472356796215), 'acc_val_desvio': np.float64(0.0054080629248805245)}
+{'grupo': 'so marcadores de conteudo', 'n_atributos': 52, 'acc_val_media': np.float64(0.4139481932757434), 'acc_val_desvio': np.float64(0.0025618101711877583)}
+{'grupo': 'so orgao, datas e repeticao', 'n_atributos': 11, 'acc_val_media': np.float64(0.40304589047724215), 'acc_val_desvio': np.float64(0.0047030519183949345)}
+{'grupo': 'regressao logistica (C=0.01) nos atributos numericos', 'n_atributos': 85, 'acc_val_media': np.float64(0.40712870821947356), 'acc_val_desvio': np.float64(0.010708408067114171)}
+{'grupo': 'regressao logistica (C=0.1) nos atributos numericos', 'n_atributos': 85, 'acc_val_media': np.float64(0.40688080565492557), 'acc_val_desvio': np.float64(0.010676579579553752)}
+{'grupo': 'regressao logistica (C=1.0) nos atributos numericos', 'n_atributos': 85, 'acc_val_media': np.float64(0.40747775982392165), 'acc_val_desvio': np.float64(0.010917856677856132)}
+            atributo                      grupo  ganho_%
+     sigla_principal   orgao, datas e repeticao    14.13
+     frac_maiusculas        tamanho e estrutura     3.74
+     m_anexo_por_100     marcadores de conteudo     3.04
+     riqueza_lexical legibilidade e vocabulario     2.73
+frac_palavras_longas legibilidade e vocabulario     2.40
+            zipf_p10 legibilidade e vocabulario     2.39
+          n_palavras        tamanho e estrutura     2.38
+           flesch_pt legibilidade e vocabulario     2.33
+  letras_por_palavra legibilidade e vocabulario     2.15
+ m_despedida_por_100     marcadores de conteudo     2.13
+  palavras_por_frase legibilidade e vocabulario     2.12
+        frac_digitos        tamanho e estrutura     1.98
+       m_lei_por_100     marcadores de conteudo     1.94
+      frac_pontuacao        tamanho e estrutura     1.94
+ repeticoes_do_final   orgao, datas e repeticao     1.86
+ silabas_por_palavra legibilidade e vocabulario     1.83
+       m_sic_por_100     marcadores de conteudo     1.81
+repeticoes_do_inicio   orgao, datas e repeticao     1.79
+       m_lai_por_100     marcadores de conteudo     1.79
+ frac_palavras_raras legibilidade e vocabulario     1.77
+grupo
+legibilidade e vocabulario    20.9
+marcadores de conteudo        36.3
+orgao, datas e repeticao      24.2
+tamanho e estrutura           18.6
+teste rotulado em /home/claude/ep1/predicoes/test1_atributos.xlsx | distribuicao: {0: 238, 1: 255, 2: 407}

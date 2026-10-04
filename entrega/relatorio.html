@@ -1,0 +1,253 @@
+<!doctype html><html lang='pt-br'><head><meta charset='utf-8'><title>Relatorio EP1</title><style>body{font-family:Georgia,serif;max-width:820px;margin:32px auto;padding:0 16px;line-height:1.45;color:#111}
+h1{font-size:1.5em}h2{font-size:1.15em;margin-top:1.6em}table{border-collapse:collapse;margin:10px 0;font-size:.92em}
+th,td{border:1px solid #999;padding:4px 8px;text-align:left;vertical-align:top}th{background:#eee}
+code{font-family:Consolas,monospace;font-size:.92em;background:#f3f3f3;padding:0 3px}</style></head><body><h1>ACH2118 Introdução ao Processamento de Língua Natural — Relatório do EP1</h1>
+<h2>1. Integrantes</h2>
+<table>
+<thead>
+<tr>
+<th>Nome</th>
+<th>Número USP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>[PREENCHER]</strong></td>
+<td><strong>[PREENCHER]</strong></td>
+</tr>
+<tr>
+<td><strong>[PREENCHER]</strong></td>
+<td><strong>[PREENCHER]</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Desistências/ausências (opcional): <strong>[PREENCHER ou remover]</strong></p>
+<h2>2. Estratégia</h2>
+<p>A tarefa é uma classificação ternária {<code>c1</code>, <code>c234</code>, <code>c5</code>} da clareza de respostas do e-SIC. Foram avaliadas várias famílias de modelos, sempre comparadas ao baseline oficial nas mesmas divisões de dados: modelos lexicais (TF-IDF de palavras e de caracteres com classificadores lineares), atributos manuais com gradient boosting (LightGBM), embeddings estáticos e rede convolucional (TextCNN), embeddings de sentença de transformers pequenos (paraphrase-multilingual-MiniLM-L12-v2 e multilingual-e5-small, usados congelados, em CPU), memórias de respostas idênticas e de respostas vizinhas, e a combinação desses modelos por stacking.</p>
+<p><strong>O modelo final é um stacking de quatro modelos-base</strong>, combinados por um meta-classificador de regressão logística:</p>
+<ol>
+<li><code>lr_pal</code>: regressão logística sobre TF-IDF de palavras (1–2-gramas);</li>
+<li><code>svc</code>: LinearSVC sobre TF-IDF de palavras (1–2-gramas) e de caracteres (2–5-gramas);</li>
+<li><code>emb_minilm</code>: regressão logística sobre embeddings de sentença do paraphrase-multilingual-MiniLM-L12-v2 (384 dimensões);</li>
+<li><code>extremos</code>: classificador <code>c1</code> × <code>c5</code> treinado apenas nas respostas dos dois extremos, cuja pontuação funciona como um eixo "ruim–bom" e ajuda a posicionar a classe intermediária.</li>
+</ol>
+<p>Embeddings do multilingual-e5-small, LightGBM sobre atributos manuais, regressão ordinal, memória de respostas idênticas e memória de vizinhos foram avaliados, mas não entraram no modelo final por não melhorarem a combinação.</p>
+<h2>3. Pré-processamento</h2>
+<ul>
+<li><strong>Todos os modelos:</strong> junção de espaços e quebras de linha repetidos em um único espaço. Sem remoção de stopwords, stemming ou lematização.</li>
+<li><strong>TF-IDF:</strong> minúsculas, <code>sublinear_tf=True</code>, <code>min_df=2</code> para n-gramas de palavras e <code>min_df=3</code> para n-gramas de caracteres (<code>char_wb</code>). O vocabulário e o IDF são calculados sobre treino + teste, sem rótulos.</li>
+<li><strong>Embeddings de sentença:</strong> truncamento em 256 subpalavras (no e5, prefixo <code>query:</code>, exigido pelo modelo), vetores normalizados; padronização (média 0, desvio 1) antes da regressão logística.</li>
+<li><strong>Entradas do meta-classificador:</strong> pontuações ou log-probabilidades dos modelos-base, padronizadas.</li>
+</ul>
+<h2>4. Parâmetros avaliados na busca em grade</h2>
+<p><strong>Modelos lexicais (32 configurações)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Valores</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Representação</td>
+<td>{palavras 1-gram, palavras 1–2-gram, caracteres 2–5-gram, palavras 1–2-gram + caracteres 2–5-gram}</td>
+</tr>
+<tr>
+<td>Classificador</td>
+<td>{regressão logística, LinearSVC, Complement Naive Bayes}</td>
+</tr>
+<tr>
+<td><code>C</code> (regressão logística)</td>
+<td>{0,3; 1; 3}</td>
+</tr>
+<tr>
+<td><code>C</code> (LinearSVC)</td>
+<td>{0,03; 0,1; 0,3}</td>
+</tr>
+<tr>
+<td><code>alpha</code> (Complement NB)</td>
+<td>{0,1; 0,5}</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Combinação por stacking (seleção passo a passo)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Valores</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blocos candidatos</td>
+<td>{<code>lr_pal</code>, <code>svc</code>, <code>emb_minilm</code>, <code>emb_e5small</code>, SVM só de palavras, <code>extremos</code>, regressão ordinal, LightGBM sobre 87 atributos manuais, memória de respostas idênticas, memória de vizinhos (TF-IDF e embeddings)}</td>
+</tr>
+<tr>
+<td>Seleção</td>
+<td>a cada passo entra o bloco que mais aumenta a acurácia em validação cruzada</td>
+</tr>
+<tr>
+<td><code>C</code> do meta-classificador</td>
+<td>{0,01; 0,1; 1}</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Outros modelos avaliados (não usados no modelo final)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Modelo</th>
+<th>Parâmetro</th>
+<th>Valores</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LightGBM sobre atributos manuais</td>
+<td><code>num_leaves</code> / <code>min_child_samples</code> / <code>colsample_bytree</code> / <code>n_estimators</code></td>
+<td>{7, 15, 31, 63} / {20, 60} / {0,3; 0,6} / {100..600}</td>
+</tr>
+<tr>
+<td>Embeddings estáticos + classificador</td>
+<td>Representação</td>
+<td>{spaCy, Word2Vec, Doc2Vec, LSA}</td>
+</tr>
+<tr>
+<td>TextCNN</td>
+<td>Embeddings / épocas</td>
+<td>{congelados, ajustados} / 1..5</td>
+</tr>
+<tr>
+<td>NB-SVM, regressão logística com 1–3-gramas, MLP sobre embeddings</td>
+<td>—</td>
+<td>uma configuração cada</td>
+</tr>
+<tr>
+<td>Só TF-IDF + SVM</td>
+<td>Representação / <code>C</code></td>
+<td>{palavras; palavras + caracteres} / {0,01; 0,03; 0,1; 0,3; 1}</td>
+</tr>
+<tr>
+<td>Embeddings no stacking</td>
+<td>Modelo / <code>C</code></td>
+<td>{MiniLM; e5-small; os dois; concatenados} / {0,003; 0,01; 0,03; 0,1}</td>
+</tr>
+<tr>
+<td><code>lr_pal</code> no stacking</td>
+<td><code>C</code> / pesos de classe</td>
+<td>{0,5; 1; 2} / {sem; balanceado}</td>
+</tr>
+<tr>
+<td>Meta-classificador não linear (LightGBM)</td>
+<td><code>num_leaves</code></td>
+<td>{4, 8, 16}</td>
+</tr>
+</tbody>
+</table>
+<h2>5. Valores ótimos</h2>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Parâmetro</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lr_pal</code></td>
+<td>Representação / <code>C</code></td>
+<td>palavras 1–2-gram / 1</td>
+</tr>
+<tr>
+<td><code>svc</code></td>
+<td>Representação / <code>C</code></td>
+<td>palavras 1–2-gram + caracteres 2–5-gram / 0,1</td>
+</tr>
+<tr>
+<td><code>emb_minilm</code></td>
+<td>Modelo / <code>C</code></td>
+<td>sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 / 0,01</td>
+</tr>
+<tr>
+<td><code>extremos</code></td>
+<td>Representação / <code>C</code></td>
+<td>palavras 1–2-gram + caracteres 2–5-gram / 1</td>
+</tr>
+<tr>
+<td>Combinação</td>
+<td>Blocos</td>
+<td><code>lr_pal</code> + <code>svc</code> + <code>emb_minilm</code> + <code>extremos</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>C</code> do meta-classificador</td>
+<td>0,1</td>
+</tr>
+</tbody>
+</table>
+<h2>6. Procedimento</h2>
+<ul>
+<li><strong>Semente única:</strong> 123 em todas as divisões e modelos.</li>
+<li><strong>Separação treino/validação:</strong> validação cruzada estratificada de 5 dobras (<code>StratifiedKFold</code>, embaralhada) sobre as 20.092 respostas do <code>train.xlsx</code>. Além disso, o protocolo do baseline oficial foi repetido: holdout único de 20% com <code>train_test_split(test_size=0.2, random_state=123, stratify=Y)</code>.</li>
+<li><strong>Baseline oficial:</strong> TF-IDF padrão + <code>LogisticRegression(class_weight='balanced', max_iter=100)</code>, medido nas mesmas divisões que o modelo.</li>
+<li><strong>Stacking sem vazamento:</strong> cada modelo-base é treinado em 4 dobras e prevê a quinta; o meta-classificador é treinado sobre essas previsões "fora da dobra". No holdout, todo o procedimento (inclusive as dobras internas) usa apenas os 80% de treino.</li>
+<li><strong>Cuidado com vazamento nas memórias:</strong> memórias calculadas com "leave-one-out" inflaram a validação cruzada de um meta-classificador não linear (48,1%), ganho que desapareceu no holdout (46,7%). As memórias passaram a ser calculadas fora da dobra e, assim, não trouxeram ganho; ficaram fora do modelo final.</li>
+<li><strong>Rotulação do teste:</strong> os modelos-base são retreinados com todo o treino e aplicados ao <code>test1.xlsx</code>; o meta-classificador treinado sobre as previsões fora da dobra produz os rótulos.</li>
+<li><strong>O conjunto de teste foi usado sem rótulos</strong> apenas no vocabulário/IDF do TF-IDF.</li>
+</ul>
+<h2>7. Resultado</h2>
+<table>
+<thead>
+<tr>
+<th>Tarefa</th>
+<th>Modelo final</th>
+<th>Acurácia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clareza {c1, c234, c5}</td>
+<td>Stacking: <code>lr_pal</code> + <code>svc</code> + <code>emb_minilm</code> + <code>extremos</code></td>
+<td><strong>46,98%</strong> em validação cruzada de 5 dobras (desvio entre dobras: 0,62)</td>
+</tr>
+</tbody>
+</table>
+<p>Por dobra: modelo 46,70% · 47,35% · 47,56% · 45,89% · 47,39%; baseline oficial 45,91% · 45,28% · 45,52% · 44,77% · 46,22% (média 45,54%). O modelo vence nas 5 dobras, por +0,8 a +2,1 pontos. No holdout oficial (semente 123): baseline 46,75%, modelo final 47,70%.</p>
+<h2>8. Repositório de código</h2>
+<p><strong>[PREENCHER com o link do GitHub ou Colab]</strong></p>
+<h2>9. Instruções de reprodução</h2>
+<p>O resultado final é reproduzido por um único script, <code>reproducao/stacking_ep1.py</code>, que não depende de nenhum outro arquivo do projeto.</p>
+<ol>
+<li>Python 3.10 ou mais novo e as bibliotecas de <code>reproducao/requirements.txt</code> (pandas, numpy, scipy, scikit-learn, openpyxl, torch, sentence-transformers): <code>pip install -r requirements.txt</code></li>
+<li>Colocar <code>train.xlsx</code> e <code>test1.xlsx</code> na pasta <code>reproducao/</code> (ou na pasta acima dela).</li>
+<li>Na pasta <code>reproducao/</code>, executar:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>O que faz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>python stacking_ep1.py</code></td>
+<td>modelo final (embeddings MiniLM): validação cruzada por dobra, baseline oficial e planilha de teste rotulada</td>
+</tr>
+<tr>
+<td><code>python stacking_ep1.py --versao e5</code></td>
+<td>versão alternativa com embeddings do multilingual-e5-small</td>
+</tr>
+<tr>
+<td><code>python stacking_ep1.py --versao ambas</code></td>
+<td>as duas versões</td>
+</tr>
+</tbody>
+</table>
+<ol start="4">
+<li>Saídas em <code>reproducao/saida/</code>: <code>test1_minilm.xlsx</code> (teste rotulado, igual ao entregue) e <code>resultado_minilm.csv</code> (acurácia por dobra).</li>
+</ol>
+<p>Tempo em CPU de 4 núcleos, sem GPU: cerca de 4 minutos para TF-IDF e modelos-base, mais 20 a 30 minutos na primeira execução para extrair os embeddings (ficam em <code>reproducao/cache/</code>; se a pasta <code>cache/</code> do repositório for mantida, essa etapa é pulada). A semente é 123 em todo o pipeline. Os scripts da pasta <code>codigo/</code> são as etapas exploratórias (grades, comparações e modelos descartados) e não são necessários para reproduzir o resultado.</p></body></html>

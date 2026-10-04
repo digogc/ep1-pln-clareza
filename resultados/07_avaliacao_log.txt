@@ -1,0 +1,32 @@
+corpus pronto em 9s | tfidf (20992, 336978) | 87 atributos | embeddings ['e5small']
+
+(A) holdout oficial 80/20, semente 123
+  baseline oficial: 0.4675
+  emb_e5small: acuracia fora da dobra 0.4221 (7s)
+  vizf_tfidf_e5small: 48 atributos (45s)
+
+(B) 5 dobras estratificadas, semente 123, treino completo
+  emb_e5small: acuracia fora da dobra 0.4275 (9s)
+  vizf_tfidf_e5small: 48 atributos (57s)
+  baseline oficial: 0.4554 +- 0.0050
+  + lr_pal         cv 0.4653 (+0.0099, vence 5/5) | holdout 0.4822 (+0.0147)
+  + svc            cv 0.4661 (+0.0107, vence 5/5) | holdout 0.4757 (+0.0082)
+  + emb_e5small    cv 0.4673 (+0.0118, vence 5/5) | holdout 0.4750 (+0.0075)
+  + extremos       cv 0.4680 (+0.0126, vence 5/5) | holdout 0.4750 (+0.0075)
+  + mem            cv 0.4678 (+0.0124, vence 5/5) | holdout 0.4723 (+0.0047)
+  + ordinal        cv 0.4663 (+0.0109, vence 5/5) | holdout 0.4723 (+0.0047)
+  + lgbm           cv 0.4658 (+0.0104, vence 5/5) | holdout 0.4680 (+0.0005)
+  + viz            cv 0.4669 (+0.0114, vence 5/5) | holdout 0.4742 (+0.0067)
+                                                          entradas    C     cv  cv_desvio  cv_menos_baseline  dobras_vencidas  holdout  holdout_menos_baseline
+                             lr_pal + svc + emb_e5small + extremos 0.10 0.4680     0.0069             0.0126                5   0.4750                  0.0075
+                       lr_pal + svc + emb_e5small + extremos + mem 0.10 0.4678     0.0066             0.0124                5   0.4723                  0.0047
+                              lr_pal + svc + emb_e5small + ordinal 0.10 0.4674     0.0070             0.0119                5   0.4755                  0.0080
+                                        lr_pal + svc + emb_e5small 0.10 0.4673     0.0067             0.0118                5   0.4750                  0.0075
+                   lr_pal + svc + emb_e5small + extremos + ordinal 0.10 0.4672     0.0068             0.0118                5   0.4772                  0.0097
+lr_pal + svc + emb_e5small + extremos + mem + ordinal + lgbm + viz 0.10 0.4669     0.0077             0.0114                5   0.4742                  0.0067
+svc + lgbm + lr_pal + ordinal + extremos + emb_e5small + mem + viz 0.01 0.4669     0.0079             0.0114                5   0.4733                  0.0057
+                                  lr_pal + svc + emb_e5small + mem 0.10 0.4666     0.0070             0.0111                5   0.4730                  0.0055
+                      lr_pal + svc + emb_e5small + extremos + lgbm 0.10 0.4666     0.0076             0.0111                5   0.4723                  0.0047
+svc + lgbm + lr_pal + ordinal + extremos + emb_e5small + mem + viz 1.00 0.4664     0.0086             0.0110                4   0.4735                  0.0060
+                                            lr_pal + svc + ordinal 0.10 0.4664     0.0067             0.0110                5   0.4765                  0.0090
+                                 lr_pal + svc + emb_e5small + lgbm 0.10 0.4664     0.0087             0.0109                5   0.4723                  0.0047
