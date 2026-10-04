@@ -4,10 +4,10 @@
 
 | Nome | Número USP |
 |---|---|
-| **[PREENCHER]** | **[PREENCHER]** |
-| **[PREENCHER]** | **[PREENCHER]** |
-
-Desistências/ausências (opcional): **[PREENCHER ou remover]**
+| Dimitri Prado | 14746022 |
+| Lucas de Lyra Monteiro | 15471435 |
+| Rodrigo Gonçalves Cardoso | 14658330 |
+| Rodrigo Lyusei Suguimoto | 14670877 |
 
 ## 2. Estratégia
 

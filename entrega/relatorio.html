@@ -12,16 +12,23 @@ code{font-family:Consolas,monospace;font-size:.92em;background:#f3f3f3;padding:0
 </thead>
 <tbody>
 <tr>
-<td><strong>[PREENCHER]</strong></td>
-<td><strong>[PREENCHER]</strong></td>
+<td>Dimitri Prado</td>
+<td>14746022</td>
 </tr>
 <tr>
-<td><strong>[PREENCHER]</strong></td>
-<td><strong>[PREENCHER]</strong></td>
+<td>Lucas de Lyra Monteiro</td>
+<td>15471435</td>
+</tr>
+<tr>
+<td>Rodrigo Gonçalves Cardoso</td>
+<td>14658330</td>
+</tr>
+<tr>
+<td>Rodrigo Lyusei Suguimoto</td>
+<td>14670877</td>
 </tr>
 </tbody>
 </table>
-<p>Desistências/ausências (opcional): <strong>[PREENCHER ou remover]</strong></p>
 <h2>2. Estratégia</h2>
 <p>A tarefa é uma classificação ternária {<code>c1</code>, <code>c234</code>, <code>c5</code>} da clareza de respostas do e-SIC. Foram avaliadas várias famílias de modelos, sempre comparadas ao baseline oficial nas mesmas divisões de dados: modelos lexicais (TF-IDF de palavras e de caracteres com classificadores lineares), atributos manuais com gradient boosting (LightGBM), embeddings estáticos e rede convolucional (TextCNN), embeddings de sentença de transformers pequenos (paraphrase-multilingual-MiniLM-L12-v2 e multilingual-e5-small, usados congelados, em CPU), memórias de respostas idênticas e de respostas vizinhas, e a combinação desses modelos por stacking.</p>
 <p><strong>O modelo final é um stacking de quatro modelos-base</strong>, combinados por um meta-classificador de regressão logística:</p>
