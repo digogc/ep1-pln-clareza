@@ -113,7 +113,7 @@ def main():
         m = P.meta(0.1).fit(np.hstack([nosso, LS]), yS)
         pt = m.predict(np.hstack([P.juntar(Zte, FINAL), Lte]))
         out = save_test_xlsx(pt, "test1_stacking_bert.xlsx")
-        atual = pd.read_excel(P.ROOT / "entrega" / "test1.xlsx")["clarity"].map({l: i for i, l in enumerate(LABELS)}).values
+        atual = pd.read_excel(P.ROOT.parent / "entrega" / "test1.xlsx")["clarity"].map({l: i for i, l in enumerate(LABELS)}).values
         print(f"planilha candidata em predicoes/{out.name} | distribuicao:",
               {LABELS[i]: int(q) for i, q in enumerate(np.bincount(pt, minlength=3))},
               f"| concordancia com a entrega atual: {(pt == atual).mean():.3f}")

@@ -1,15 +1,16 @@
-# dados do professor e caches grandes (recalculaveis)
-/train.xlsx
+# dados do professor (nao redistribuir)
+train.xlsx
 /test1.xlsx
-dados/*.npz
-dados/*.npy
-dados/*.pkl
-resultados/*.npz
-resultados/*.npy
-resposta_dimitri/bertimbau_model/
-entrega_EP1.zip
-__pycache__/
-resposta_dimitri/
-# material do professor (nao redistribuir)
+experimentos/test1.xlsx
 ep1-enunciado.pdf
 ep1-modelo-relatorio.pdf
+# caches grandes dos experimentos (recalculaveis)
+experimentos/dados/*.npz
+experimentos/dados/*.npy
+experimentos/dados/*.pkl
+experimentos/resultados/*.npz
+experimentos/resultados/*.npy
+# outros
+resposta_dimitri/
+entrega_EP1.zip
+__pycache__/

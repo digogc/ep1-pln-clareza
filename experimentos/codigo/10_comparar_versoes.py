@@ -58,7 +58,7 @@ def main():
     print(f"teste da v3 em {out.name} | distribuicao:",
           {LABELS[i]: int(q) for i, q in enumerate(np.bincount(tst[v3], minlength=3))},
           f"| concordancia com a v2 no teste: {(tst[v2] == tst[v3]).mean():.3f}")
-    atual = pd.read_excel(P.ROOT / "entrega" / "test1.xlsx")["clarity"].map({l: i for i, l in enumerate(LABELS)}).values
+    atual = pd.read_excel(P.ROOT.parent / "entrega" / "test1.xlsx")["clarity"].map({l: i for i, l in enumerate(LABELS)}).values
     print("entrega/test1.xlsx igual a v2:", bool((atual == tst[v2]).all()))
 
 

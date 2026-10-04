@@ -1,7 +1,7 @@
 """Funcoes compartilhadas por todas as abordagens do EP1 (ACH2118).
 
-Estrutura esperada (pasta do EP):
-    train.xlsx, test1.xlsx          -> dados do professor
+Estrutura esperada (pasta experimentos/):
+    train.xlsx, test1.xlsx          -> dados do professor (copiar para dentro de experimentos/)
     codigo/                         -> scripts
     dados/folds.csv                 -> divisao fixa da validacao cruzada
     resultados/, predicoes/         -> saidas

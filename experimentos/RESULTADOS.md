@@ -1,3 +1,5 @@
+> Histórico dos experimentos. O modelo final e como rodá-lo estão em `../modelo_final/` e no `../README.md`. Os caminhos citados abaixo (`codigo/`, `resultados/`, `predicoes/`) são relativos a esta pasta `experimentos/`.
+
 # EP1 — Resultados (ACH2118, classificação de clareza no e-SIC)
 
 ## Modelo final (entrega) — stacking com MiniLM, semente 123

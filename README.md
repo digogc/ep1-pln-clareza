@@ -1,42 +1,52 @@
-# EP1 — ACH2118 Introdução ao Processamento de Língua Natural
+# EP1 — ACH2118 Introdução ao Processamento de Língua Natural (EACH-USP)
 
-Classificação da clareza de respostas do e-SIC em `c1`, `c234` e `c5`.
+Classificação da clareza de respostas do e-SIC em três classes: `c1`, `c234` e `c5`.
 
-**Modelo final:** stacking de quatro modelos-base (regressão logística em TF-IDF de palavras, SVM linear em TF-IDF de palavras e caracteres, regressão logística em embeddings do MiniLM e classificador `c1`×`c5` dos extremos), combinados por regressão logística.
+## Resultado final
 
 | Validação cruzada, 5 dobras, semente 123 | Dobra 1 | Dobra 2 | Dobra 3 | Dobra 4 | Dobra 5 | Média |
 |---|---|---|---|---|---|---|
-| Baseline oficial | 45,91% | 45,28% | 45,52% | 44,77% | 46,22% | 45,54% |
-| Modelo final | 46,70% | 47,35% | 47,56% | 45,89% | 47,39% | **46,98%** |
+| Baseline oficial (TF-IDF + regressão logística) | 45,91% | 45,28% | 45,52% | 44,77% | 46,22% | 45,54% |
+| **Modelo final (stacking)** | 46,70% | 47,35% | 47,56% | 45,89% | 47,39% | **46,98%** |
+
+**Modelo final:** stacking de quatro modelos-base, combinados por regressão logística:
+
+1. regressão logística sobre TF-IDF de palavras;
+2. SVM linear sobre TF-IDF de palavras e caracteres;
+3. regressão logística sobre embeddings de sentença (`paraphrase-multilingual-MiniLM-L12-v2`, congelado);
+4. classificador `c1`×`c5` treinado só nos extremos.
 
 ## Onde está cada coisa
 
-| Caminho | Conteúdo |
+| Você procura | Está em |
 |---|---|
-| `entrega/` | **o que vai no .zip**: `test1.xlsx` (teste rotulado), `relatorio.html` (relatório, para salvar como PDF) e, quando pronta, `apresentacao.pdf` |
-| `gerar_entrega.py` | regenera `entrega/relatorio.html` a partir do `RELATORIO.md`, confere a planilha e monta `entrega_EP1.zip` |
-| `RELATORIO.md` | relatório no modelo do professor (editar aqui) |
-| `reproducao/` | **código para reproduzir o resultado**: script único `stacking_ep1.py`, com as versões MiniLM (final) e e5 |
-| `RESULTADOS.md` | histórico completo dos experimentos e comparações |
-| `RESUMO-EP1.md` | resumo do enunciado |
-| `codigo/` | etapas exploratórias (grades, modelos descartados, comparações); `pipeline.py` e `08_final.py` são a versão de desenvolvimento do modelo final |
-| `resultados/` | tabelas e logs de cada experimento |
-| `predicoes/` | planilhas de teste de versões anteriores e alternativas (não são a entrega) |
-| `dados/` | caches de desenvolvimento (TF-IDF, atributos, embeddings); podem ser apagados, são recalculados |
-| `resposta_dimitri/` | modelo de um colega (BERTimbau ajustado + árvores); não entrou na entrega e fica fora do repositório |
+| **O código do modelo final** | [`modelo_final/stacking_ep1.py`](modelo_final/stacking_ep1.py) (script único) |
+| **Como rodar** | [`modelo_final/README.md`](modelo_final/README.md) |
+| **A planilha de teste rotulada (entrega)** | [`entrega/test1.xlsx`](entrega/test1.xlsx) |
+| **O relatório** | [`RELATORIO.md`](RELATORIO.md) |
+| Testes que não entraram no modelo final | [`experimentos/`](experimentos/) (índice em [`experimentos/README.md`](experimentos/README.md)) |
 
-## Reproduzir
+Só as pastas `modelo_final/` e `entrega/` e o `RELATORIO.md` fazem parte do resultado. Tudo em `experimentos/` é histórico.
+
+## Rodar o modelo final
+
+Coloque `train.xlsx` e `test1.xlsx` na pasta `modelo_final/` (ou na raiz) e execute:
 
 ```bash
-cd reproducao
+cd modelo_final
 pip install -r requirements.txt
 python stacking_ep1.py
 ```
 
-Detalhes em `reproducao/README.md`.
+O script mostra a acurácia do baseline e do stacking em cada dobra e grava o teste rotulado em `modelo_final/saida/test1_minilm.xlsx`. Leva cerca de 4 minutos em CPU (os embeddings já vêm em `modelo_final/cache/`).
 
-## Montar a entrega
+## Estrutura
 
-1. Preencher nomes, números USP e link do repositório no `RELATORIO.md`.
-2. Colocar a apresentação em `entrega/apresentacao.pdf`.
-3. Rodar `python gerar_entrega.py`, abrir `entrega/relatorio.html` no navegador e salvar como PDF em `entrega/relatorio.pdf`, e rodar `python gerar_entrega.py` de novo para montar o `entrega_EP1.zip`.
+```
+README.md            este arquivo
+RELATORIO.md         relatório no modelo do professor
+modelo_final/        código e saídas do modelo final
+entrega/             o que vai no .zip: test1.xlsx, relatório e apresentação
+gerar_entrega.py     confere a planilha e monta o .zip da entrega
+experimentos/        testes anteriores e alternativas descartadas
+```

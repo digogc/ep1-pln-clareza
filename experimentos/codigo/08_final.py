@@ -6,7 +6,6 @@
     extremos     classificador c1 x c5 treinado so nos extremos (eixo "ruim-bom")
 Uso:  python codigo/08_final.py     (depois de 05_embeddings_sentenca.py)
 """
-import shutil
 import numpy as np
 import pandas as pd
 from sklearn.metrics import confusion_matrix
@@ -43,9 +42,7 @@ def main():
     proba = m.predict_proba(P.juntar(Zb, FINAL))
     np.save(P.RES / "08_final_teste_proba.npy", proba)
     out = save_test_xlsx(proba.argmax(1), "test1_final_minilm.xlsx")
-    (P.ROOT / "entrega").mkdir(exist_ok=True)
-    shutil.copy(out, P.ROOT / "entrega" / "test1.xlsx")
-    print("teste rotulado em entrega/test1.xlsx | distribuicao:",
+    print(f"teste rotulado em predicoes/{out.name} | distribuicao:",
           {LABELS[i]: int(v) for i, v in enumerate(np.bincount(proba.argmax(1), minlength=3))})
     cols = [f"{n}_{l}" if Za[n].shape[1] == 3 else n for n in FINAL for l in LABELS[:Za[n].shape[1]]]
     pd.DataFrame(m[-1].coef_, index=LABELS, columns=cols).round(3).T.to_csv(P.RES / "08_final_coeficientes.csv")

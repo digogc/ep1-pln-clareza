@@ -89,7 +89,7 @@ Embeddings do multilingual-e5-small, LightGBM sobre atributos manuais, regressã
 |---|---|---|
 | Clareza {c1, c234, c5} | Stacking: `lr_pal` + `svc` + `emb_minilm` + `extremos` | **46,98%** em validação cruzada de 5 dobras (desvio entre dobras: 0,62) |
 
-Por dobra: modelo 46,70% · 47,35% · 47,56% · 45,89% · 47,39%; baseline oficial 45,91% · 45,28% · 45,52% · 44,77% · 46,22% (média 45,54%). O modelo vence nas 5 dobras, por +0,8 a +2,1 pontos. No holdout oficial (semente 123): baseline 46,75%, modelo final 47,70%.
+Acurácia por dobra: 46,70% · 47,35% · 47,56% · 45,89% · 47,39%. Para referência, nas mesmas dobras o baseline oficial (TF-IDF + regressão logística) obtém 45,54% em média.
 
 ## 8. Repositório de código
 
@@ -97,11 +97,11 @@ https://github.com/digogc/ep1-pln-clareza
 
 ## 9. Instruções de reprodução
 
-O resultado final é reproduzido por um único script, `reproducao/stacking_ep1.py`, que não depende de nenhum outro arquivo do projeto.
+O resultado final é reproduzido por um único script, `modelo_final/stacking_ep1.py`, que não depende de nenhum outro arquivo do projeto.
 
-1. Python 3.10 ou mais novo e as bibliotecas de `reproducao/requirements.txt` (pandas, numpy, scipy, scikit-learn, openpyxl, torch, sentence-transformers): `pip install -r requirements.txt`
-2. Colocar `train.xlsx` e `test1.xlsx` na pasta `reproducao/` (ou na pasta acima dela).
-3. Na pasta `reproducao/`, executar:
+1. Python 3.10 ou mais novo e as bibliotecas de `modelo_final/requirements.txt` (pandas, numpy, scipy, scikit-learn, openpyxl, torch, sentence-transformers): `pip install -r requirements.txt`
+2. Colocar `train.xlsx` e `test1.xlsx` na pasta `modelo_final/` (ou na pasta acima dela).
+3. Na pasta `modelo_final/`, executar:
 
    | Comando | O que faz |
    |---|---|
@@ -109,6 +109,6 @@ O resultado final é reproduzido por um único script, `reproducao/stacking_ep1.
    | `python stacking_ep1.py --versao e5` | versão alternativa com embeddings do multilingual-e5-small |
    | `python stacking_ep1.py --versao ambas` | as duas versões |
 
-4. Saídas em `reproducao/saida/`: `test1_minilm.xlsx` (teste rotulado, igual ao entregue) e `resultado_minilm.csv` (acurácia por dobra).
+4. Saídas em `modelo_final/saida/`: `test1_minilm.xlsx` (teste rotulado, igual ao entregue) e `resultado_minilm.csv` (acurácia por dobra).
 
-Tempo em CPU de 4 núcleos, sem GPU: cerca de 4 minutos para TF-IDF e modelos-base, mais 20 a 30 minutos na primeira execução para extrair os embeddings (ficam em `reproducao/cache/`; se a pasta `cache/` do repositório for mantida, essa etapa é pulada). A semente é 123 em todo o pipeline. Os scripts da pasta `codigo/` são as etapas exploratórias (grades, comparações e modelos descartados) e não são necessários para reproduzir o resultado.
+Tempo em CPU de 4 núcleos, sem GPU: cerca de 4 minutos para TF-IDF e modelos-base, mais 20 a 30 minutos na primeira execução para extrair os embeddings (ficam em `modelo_final/cache/`; se a pasta `cache/` do repositório for mantida, essa etapa é pulada). A semente é 123 em todo o pipeline. A pasta `experimentos/` do repositório guarda as etapas exploratórias (grades, comparações e modelos descartados) e não é necessária para reproduzir o resultado.

@@ -7,7 +7,6 @@ com texto identico foram rotuladas.
 Uso:  python codigo/04_ensemble.py   (depois de rodar 01, 02, 03_embeddings e 03_textcnn)
 """
 import itertools
-import shutil
 import time
 from collections import defaultdict
 
@@ -140,9 +139,7 @@ def main():
     pte = m.predict_proba(Xte)
     np.save(RES / "04_ensemble_teste_proba.npy", pte)
     out = save_test_xlsx(pte.argmax(1), "test1_ensemble.xlsx")
-    (ROOT / "entrega").mkdir(exist_ok=True)
-    shutil.copy(out, ROOT / "entrega" / "test1.xlsx")
-    print("teste rotulado em entrega/test1.xlsx | distribuicao:",
+    print(f"teste rotulado em predicoes/{out.name} | distribuicao:",
           {LABELS[i]: int(n) for i, n in enumerate(np.bincount(pte.argmax(1), minlength=3))})
     coef = pd.DataFrame(m[-1].coef_, index=LABELS,
                         columns=[f"{n}_{l}" for n in sub for l in LABELS] +
