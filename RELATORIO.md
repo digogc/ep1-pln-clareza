@@ -93,7 +93,7 @@ Por dobra: modelo 46,70% · 47,35% · 47,56% · 45,89% · 47,39%; baseline ofici
 
 ## 8. Repositório de código
 
-**[PREENCHER com o link do GitHub ou Colab]**
+https://github.com/digogc/ep1-pln-clareza
 
 ## 9. Instruções de reprodução
 

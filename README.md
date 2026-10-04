@@ -23,7 +23,7 @@ Classificação da clareza de respostas do e-SIC em `c1`, `c234` e `c5`.
 | `resultados/` | tabelas e logs de cada experimento |
 | `predicoes/` | planilhas de teste de versões anteriores e alternativas (não são a entrega) |
 | `dados/` | caches de desenvolvimento (TF-IDF, atributos, embeddings); podem ser apagados, são recalculados |
-| `resposta_dimitri/` | modelo do Dimitri (BERTimbau ajustado + árvores); não entrou na entrega |
+| `resposta_dimitri/` | modelo de um colega (BERTimbau ajustado + árvores); não entrou na entrega e fica fora do repositório |
 
 ## Reproduzir
 
