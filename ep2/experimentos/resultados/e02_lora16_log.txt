@@ -1,0 +1,35 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+{'nome': 'lora16', 'modelo': 'neuralmind/bert-base-portuguese-cased', 'dobras': 2, 'so_dobra': None, 'epocas': 2, 'max_len': 128, 'lr': 0.0003, 'lote': 16, 'congelar': 4, 'lora': 16, 'lora_dropout': 0.0, 'suavizacao': 0.0, 'bench': 0, 'threads': 8}
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 11318.59it/s]
+  parametros treinados: 2.36 M
+  dobra 0 epoca 1 passo 50/1256 | perda 1.102 acerto-treino 0.351 | 2.83 textos/s | faltam ~114 min
+  dobra 0 epoca 1 passo 100/1256 | perda 1.097 acerto-treino 0.369 | 2.57 textos/s | faltam ~120 min
+  dobra 0 epoca 1 passo 150/1256 | perda 1.105 acerto-treino 0.365 | 2.32 textos/s | faltam ~127 min
+  dobra 0 epoca 1 passo 200/1256 | perda 1.107 acerto-treino 0.367 | 2.22 textos/s | faltam ~127 min
+  dobra 0 epoca 1 passo 250/1256 | perda 1.108 acerto-treino 0.372 | 2.15 textos/s | faltam ~125 min
+  dobra 0 epoca 1 passo 300/1256 | perda 1.107 acerto-treino 0.370 | 1.91 textos/s | faltam ~133 min
+  dobra 0 epoca 1 passo 350/1256 | perda 1.105 acerto-treino 0.376 | 1.68 textos/s | faltam ~143 min
+  dobra 0 epoca 1 passo 400/1256 | perda 1.103 acerto-treino 0.376 | 1.62 textos/s | faltam ~141 min
+  dobra 0 epoca 1 passo 450/1256 | perda 1.103 acerto-treino 0.381 | 1.62 textos/s | faltam ~132 min
+  dobra 0 epoca 1 passo 500/1256 | perda 1.101 acerto-treino 0.383 | 1.65 textos/s | faltam ~122 min
+  dobra 0 epoca 1 passo 550/1256 | perda 1.099 acerto-treino 0.382 | 1.68 textos/s | faltam ~112 min
+  dobra 0 epoca 1 passo 600/1256 | perda 1.098 acerto-treino 0.382 | 1.70 textos/s | faltam ~103 min
+  dobra 0 fim da epoca 1: acerto em 600 linhas da validacao = 0.4017
+  dobra 0 epoca 2 passo 650/1256 | perda 1.062 acerto-treino 0.423 | 1.69 textos/s | faltam ~96 min
+  dobra 0 epoca 2 passo 700/1256 | perda 1.057 acerto-treino 0.436 | 1.71 textos/s | faltam ~87 min
+  dobra 0 epoca 2 passo 750/1256 | perda 1.053 acerto-treino 0.445 | 1.72 textos/s | faltam ~78 min
+  dobra 0 epoca 2 passo 800/1256 | perda 1.053 acerto-treino 0.445 | 1.74 textos/s | faltam ~70 min
+  dobra 0 epoca 2 passo 850/1256 | perda 1.049 acerto-treino 0.448 | 1.75 textos/s | faltam ~62 min
+  dobra 0 epoca 2 passo 900/1256 | perda 1.051 acerto-treino 0.442 | 1.76 textos/s | faltam ~54 min
+  dobra 0 epoca 2 passo 950/1256 | perda 1.050 acerto-treino 0.443 | 1.77 textos/s | faltam ~46 min
+  dobra 0 epoca 2 passo 1000/1256 | perda 1.044 acerto-treino 0.446 | 1.78 textos/s | faltam ~38 min
+  dobra 0 epoca 2 passo 1050/1256 | perda 1.047 acerto-treino 0.442 | 1.79 textos/s | faltam ~31 min
+  dobra 0 epoca 2 passo 1100/1256 | perda 1.045 acerto-treino 0.445 | 1.80 textos/s | faltam ~23 min
+  dobra 0 epoca 2 passo 1150/1256 | perda 1.044 acerto-treino 0.448 | 1.81 textos/s | faltam ~16 min
+  dobra 0 epoca 2 passo 1200/1256 | perda 1.044 acerto-treino 0.447 | 1.82 textos/s | faltam ~8 min
+  dobra 0 epoca 2 passo 1250/1256 | perda 1.044 acerto-treino 0.450 | 1.82 textos/s | faltam ~1 min
+  dobra 0 fim da epoca 2: acerto em 600 linhas da validacao = 0.4183
+  dobra 0: acerto na validacao inteira = 0.4373 | inferencia 28 min
+dobra 0 concluida em 3.6 h
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 6419.52it/s]
+  parametros treinados: 2.36 M

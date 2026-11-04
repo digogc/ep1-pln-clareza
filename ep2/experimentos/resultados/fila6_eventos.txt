@@ -1,0 +1,4 @@
+﻿fila 5 trocada pela 6 em 10/31/2026 10:54:36
+inicio 10/31/2026 10:54:38
+BERT de 256 tokens em 5 dobras pronto 11/02/2026 02:16:33
+fila 6 parada para o teste do BERT de 512 tokens 11/02/2026 02:27:53

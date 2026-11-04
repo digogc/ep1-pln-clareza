@@ -1,0 +1,2 @@
+previsor na GPU ativo (PID 9760), esperando pedidos em C:\Users\digog\ep2_ckpt\fila_gpu
+  teste_gpu_ep1 dobra 0 (GPU): acerto na validacao inteira = 0.3300 | inferencia 10.5 min

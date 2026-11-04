@@ -1,0 +1,6 @@
+dobra 0 do 5-dobras (4019 linhas), stacking interno de 5 dobras
+com o BERT da v2 (2 dobras)   47.42 | 50.25 48.51 47.26 45.65 45.45
+com o BERT de 5 dobras        46.88 | 49.50 47.26 46.52 45.40 45.70
+com os dois BERTs (escores)   47.08 | 50.12 48.26 46.77 45.40 44.83
+com a media dos dois escores  47.15 | 49.88 48.38 46.64 45.52 45.33
+so o BERT de 5 dobras + v2 3 logits 46.95 | 49.88 46.52 47.26 45.77 45.33

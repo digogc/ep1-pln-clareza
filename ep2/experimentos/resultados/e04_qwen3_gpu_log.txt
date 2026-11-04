@@ -1,0 +1,50 @@
+  parte 1/44 pronta | 1 min
+  parte 2/44 pronta | 1 min
+  parte 3/44 pronta | 2 min
+  parte 4/44 pronta | 3 min
+  parte 5/44 pronta | 4 min
+  parte 6/44 pronta | 5 min
+  parte 7/44 pronta | 7 min
+  parte 8/44 pronta | 8 min
+  parte 9/44 pronta | 10 min
+  parte 10/44 pronta | 11 min
+  parte 11/44 pronta | 13 min
+  parte 12/44 pronta | 15 min
+  parte 13/44 pronta | 17 min
+  parte 14/44 pronta | 19 min
+  parte 15/44 pronta | 21 min
+  parte 16/44 pronta | 24 min
+  parte 17/44 pronta | 26 min
+  parte 18/44 pronta | 29 min
+  parte 19/44 pronta | 33 min
+  parte 20/44 pronta | 36 min
+  parte 21/44 pronta | 39 min
+  parte 22/44 pronta | 42 min
+  parte 23/44 pronta | 45 min
+  parte 24/44 pronta | 49 min
+  parte 25/44 pronta | 53 min
+  parte 26/44 pronta | 59 min
+  parte 27/44 pronta | 64 min
+  parte 28/44 pronta | 68 min
+  parte 29/44 pronta | 71 min
+  parte 30/44 pronta | 75 min
+  parte 31/44 pronta | 78 min
+  parte 32/44 pronta | 82 min
+  parte 33/44 pronta | 86 min
+  parte 34/44 pronta | 89 min
+  parte 35/44 pronta | 93 min
+  parte 36/44 pronta | 96 min
+  parte 37/44 pronta | 99 min
+  parte 38/44 pronta | 103 min
+  parte 39/44 pronta | 106 min
+  parte 40/44 pronta | 108 min
+  parte 41/44 pronta | 111 min
+  parte 42/44 pronta | 113 min
+  parte 43/44 pronta | 116 min
+  parte 44/44 pronta | 118 min
+embeddings prontos em 119 min
+  qwen3 + RL C=0.003: 43.86
+  qwen3 + RL C=0.01: 43.48
+  qwen3 + RL C=0.03: 43.53
+v2                 47.29 | 47.52 47.35 48.03 46.12 47.44
+v2 + emb_qwen3     47.27 | 47.80 47.20 47.93 45.87 47.54

@@ -1,0 +1,10 @@
+(a) meta-classificador sobre os blocos da v2 (media | dobras 1-5):
+  regressao logistica C=0.03  47.28 | 47.37 47.30 48.08 46.12 47.51
+  regressao logistica C=0.1   47.29 | 47.52 47.35 48.03 46.12 47.44
+  regressao logistica C=0.3   47.34 | 47.45 47.40 48.11 46.22 47.51
+  LightGBM                    46.73 | 46.33 46.93 47.26 46.02 47.09
+
+(b) 34 atributos escritos a mao (61s)
+  LightGBM sozinho nos atributos: 43.04
+  v2 + atributos              47.16 | 47.28 47.37 48.26 46.22 46.67
+tempo 1.5 min

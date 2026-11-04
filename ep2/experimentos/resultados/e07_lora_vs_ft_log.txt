@@ -1,0 +1,6 @@
+['idx', 'oof', 'test1', 'test2'] ['idx', 'oof', 'test1', 'test2']
+v2 BERT (FT) metade 0: 0.4466 | LoRA r16: 0.4373
+so FT acerta 821, so LoRA acerta 727, p exato 0.0181
+concordancia FT x LoRA: 0.792
+media das probabilidades FT+LoRA: 0.4444
+correlacao dos escores c5-c1: 0.925

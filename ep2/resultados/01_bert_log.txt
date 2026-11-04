@@ -1,0 +1,63 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+20092 treino, 900 test1, 897 test2 | {'modelo': 'neuralmind/bert-base-portuguese-cased', 'dobras': 2, 'epocas': 2, 'max_len': 128, 'lr': 3e-05, 'lote': 16, 'congelar': 4}
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7440.16it/s]
+  dobra 0 epoca 1 passo 50/1256 | perda 1.100 acerto-treino 0.345 | 1.60 textos/s | faltam ~201 min de treino
+  dobra 0 epoca 1 passo 100/1256 | perda 1.099 acerto-treino 0.358 | 1.70 textos/s | faltam ~181 min de treino
+  dobra 0 epoca 1 passo 150/1256 | perda 1.098 acerto-treino 0.366 | 1.84 textos/s | faltam ~161 min de treino
+  dobra 0 epoca 1 passo 200/1256 | perda 1.097 acerto-treino 0.367 | 1.91 textos/s | faltam ~148 min de treino
+  dobra 0 epoca 1 passo 250/1256 | perda 1.093 acerto-treino 0.372 | 1.93 textos/s | faltam ~139 min de treino
+  dobra 0 epoca 1 passo 300/1256 | perda 1.092 acerto-treino 0.373 | 1.97 textos/s | faltam ~129 min de treino
+  dobra 0 epoca 1 passo 350/1256 | perda 1.090 acerto-treino 0.381 | 2.00 textos/s | faltam ~121 min de treino
+  dobra 0 epoca 1 passo 400/1256 | perda 1.088 acerto-treino 0.382 | 2.02 textos/s | faltam ~113 min de treino
+  dobra 0 epoca 1 passo 450/1256 | perda 1.086 acerto-treino 0.391 | 2.03 textos/s | faltam ~106 min de treino
+  dobra 0 epoca 1 passo 500/1256 | perda 1.084 acerto-treino 0.395 | 2.06 textos/s | faltam ~98 min de treino
+  dobra 0 epoca 1 passo 550/1256 | perda 1.083 acerto-treino 0.398 | 2.08 textos/s | faltam ~90 min de treino
+  dobra 0 epoca 1 passo 600/1256 | perda 1.081 acerto-treino 0.399 | 2.10 textos/s | faltam ~83 min de treino
+  dobra 0 fim da epoca 1: acerto em 600 linhas da metade de validacao = 0.4483
+  dobra 0 epoca 2 passo 650/1256 | perda 1.046 acerto-treino 0.440 | 2.08 textos/s | faltam ~78 min de treino
+  dobra 0 epoca 2 passo 700/1256 | perda 1.039 acerto-treino 0.451 | 2.09 textos/s | faltam ~71 min de treino
+  dobra 0 epoca 2 passo 750/1256 | perda 1.034 acerto-treino 0.460 | 2.10 textos/s | faltam ~64 min de treino
+  dobra 0 epoca 2 passo 800/1256 | perda 1.031 acerto-treino 0.467 | 2.11 textos/s | faltam ~58 min de treino
+  dobra 0 epoca 2 passo 850/1256 | perda 1.029 acerto-treino 0.468 | 2.11 textos/s | faltam ~51 min de treino
+  dobra 0 epoca 2 passo 900/1256 | perda 1.028 acerto-treino 0.471 | 2.12 textos/s | faltam ~45 min de treino
+  dobra 0 epoca 2 passo 950/1256 | perda 1.027 acerto-treino 0.470 | 2.13 textos/s | faltam ~38 min de treino
+  dobra 0 epoca 2 passo 1000/1256 | perda 1.021 acerto-treino 0.474 | 2.13 textos/s | faltam ~32 min de treino
+  dobra 0 epoca 2 passo 1050/1256 | perda 1.024 acerto-treino 0.470 | 2.14 textos/s | faltam ~26 min de treino
+  dobra 0 epoca 2 passo 1100/1256 | perda 1.023 acerto-treino 0.470 | 2.14 textos/s | faltam ~19 min de treino
+  dobra 0 epoca 2 passo 1150/1256 | perda 1.022 acerto-treino 0.472 | 2.15 textos/s | faltam ~13 min de treino
+  dobra 0 epoca 2 passo 1200/1256 | perda 1.023 acerto-treino 0.470 | 2.15 textos/s | faltam ~7 min de treino
+  dobra 0 epoca 2 passo 1250/1256 | perda 1.023 acerto-treino 0.472 | 2.16 textos/s | faltam ~1 min de treino
+  dobra 0 fim da epoca 2: acerto em 600 linhas da metade de validacao = 0.4183
+  dobra 0: acerto na metade de validacao inteira = 0.4466 | inferencia 23 min
+dobra 0 concluida em 3.0 h
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 12036.26it/s]
+  dobra 1 epoca 1 passo 50/1256 | perda 1.108 acerto-treino 0.324 | 2.00 textos/s | faltam ~161 min de treino
+  dobra 1 epoca 1 passo 100/1256 | perda 1.104 acerto-treino 0.342 | 2.25 textos/s | faltam ~137 min de treino
+  dobra 1 epoca 1 passo 150/1256 | perda 1.101 acerto-treino 0.352 | 2.36 textos/s | faltam ~125 min de treino
+  dobra 1 epoca 1 passo 200/1256 | perda 1.097 acerto-treino 0.364 | 2.41 textos/s | faltam ~117 min de treino
+  dobra 1 epoca 1 passo 250/1256 | perda 1.097 acerto-treino 0.369 | 2.45 textos/s | faltam ~110 min de treino
+  dobra 1 epoca 1 passo 300/1256 | perda 1.094 acerto-treino 0.374 | 2.47 textos/s | faltam ~103 min de treino
+  dobra 1 epoca 1 passo 350/1256 | perda 1.092 acerto-treino 0.382 | 2.48 textos/s | faltam ~98 min de treino
+  dobra 1 epoca 1 passo 400/1256 | perda 1.090 acerto-treino 0.389 | 2.49 textos/s | faltam ~92 min de treino
+  dobra 1 epoca 1 passo 450/1256 | perda 1.088 acerto-treino 0.392 | 2.51 textos/s | faltam ~86 min de treino
+  dobra 1 epoca 1 passo 500/1256 | perda 1.087 acerto-treino 0.392 | 2.51 textos/s | faltam ~80 min de treino
+  dobra 1 epoca 1 passo 550/1256 | perda 1.086 acerto-treino 0.394 | 2.52 textos/s | faltam ~75 min de treino
+  dobra 1 epoca 1 passo 600/1256 | perda 1.084 acerto-treino 0.397 | 2.53 textos/s | faltam ~69 min de treino
+  dobra 1 fim da epoca 1: acerto em 600 linhas da metade de validacao = 0.4283
+  dobra 1 epoca 2 passo 650/1256 | perda 1.046 acerto-treino 0.457 | 2.50 textos/s | faltam ~65 min de treino
+  dobra 1 epoca 2 passo 700/1256 | perda 1.026 acerto-treino 0.465 | 2.50 textos/s | faltam ~59 min de treino
+  dobra 1 epoca 2 passo 750/1256 | perda 1.027 acerto-treino 0.466 | 2.51 textos/s | faltam ~54 min de treino
+  dobra 1 epoca 2 passo 800/1256 | perda 1.028 acerto-treino 0.467 | 2.51 textos/s | faltam ~48 min de treino
+  dobra 1 epoca 2 passo 850/1256 | perda 1.026 acerto-treino 0.472 | 2.50 textos/s | faltam ~43 min de treino
+  dobra 1 epoca 2 passo 900/1256 | perda 1.026 acerto-treino 0.474 | 2.49 textos/s | faltam ~38 min de treino
+  dobra 1 epoca 2 passo 950/1256 | perda 1.025 acerto-treino 0.475 | 2.49 textos/s | faltam ~33 min de treino
+  dobra 1 epoca 2 passo 1000/1256 | perda 1.025 acerto-treino 0.475 | 2.48 textos/s | faltam ~27 min de treino
+  dobra 1 epoca 2 passo 1050/1256 | perda 1.024 acerto-treino 0.474 | 2.48 textos/s | faltam ~22 min de treino
+  dobra 1 epoca 2 passo 1100/1256 | perda 1.025 acerto-treino 0.473 | 2.48 textos/s | faltam ~17 min de treino
+  dobra 1 epoca 2 passo 1150/1256 | perda 1.023 acerto-treino 0.475 | 2.47 textos/s | faltam ~11 min de treino
+  dobra 1 epoca 2 passo 1200/1256 | perda 1.021 acerto-treino 0.479 | 2.47 textos/s | faltam ~6 min de treino
+  dobra 1 epoca 2 passo 1250/1256 | perda 1.021 acerto-treino 0.477 | 2.46 textos/s | faltam ~1 min de treino
+  dobra 1 fim da epoca 2: acerto em 600 linhas da metade de validacao = 0.4533
+  dobra 1: acerto na metade de validacao inteira = 0.4509 | inferencia 20 min
+dobra 1 concluida em 2.6 h
+BERTimbau sozinho, validacao cruzada de 2 dobras: 0.4488 | por dobra [0.4466 0.4509]

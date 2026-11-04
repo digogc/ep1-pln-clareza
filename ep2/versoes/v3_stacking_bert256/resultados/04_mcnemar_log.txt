@@ -1,0 +1,7 @@
+acuracia no test1: EP1 0.4856 | EP2 0.5100
+tabela de contingencia:
+            EP2 acerta  EP2 erra
+EP1 acerta         398        39
+EP1 erra            61       402
+McNemar (qui-quadrado com correcao de continuidade): estatistica 4.410, p = 0.0357
+McNemar exato (binomial): p = 0.0352

@@ -14,3 +14,21 @@ experimentos/resultados/*.npy
 resposta_dimitri/
 entrega_EP1.zip
 __pycache__/
+
+# EP2: dados do professor e caches grandes
+ep2/dados/
+ep2/resultados/*.npy
+ep2/resultados/*.npz
+ep2/cache/
+# previsoes do BERTimbau ajustado (pequenas; evitam refazer as ~6 h de fine-tuning)
+!ep2/resultados/bert_oof.npy
+!ep2/resultados/bert_test1.npy
+!ep2/resultados/bert_test2.npy
+# previsoes do BERT 256 e bloco do Qwen3 usados pela v4 (pequenos; evitam refazer ~40 h de fine-tuning)
+!ep2/resultados/bert256_oof.npy
+!ep2/resultados/bert256_test1.npy
+!ep2/resultados/bert256_test2.npy
+!ep2/resultados/bloco_qwen3.npz
+# cache de embeddings (90 MB, recalculavel) e exemplos de prompt com respostas rotuladas do treino
+ep2/experimentos/cache/
+ep2/experimentos/resultados/llm/

@@ -1,0 +1,9 @@
+knn_tfidf pronto (37s); acerto do voto k=25 sozinho: 43.50
+knn_minilm pronto (6s); acerto do voto k=25 sozinho: 41.70
+
+stacking (media | dobras 1-5):
+v2                        47.29 | 47.52 47.35 48.03 46.12 47.44
+v2 + knn_tfidf            47.06 | 46.43 47.23 48.06 46.47 47.14
+v2 + knn_minilm           47.27 | 46.35 48.22 48.33 46.17 47.29
+v2 + knn_tfidf+knn_minilm 47.06 | 46.40 47.42 48.11 46.32 47.04
+tempo 1.1 min

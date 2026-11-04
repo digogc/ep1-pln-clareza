@@ -1,0 +1,1050 @@
+
+    <style>
+    table.eli5-weights tr:hover {
+        filter: brightness(85%);
+    }
+</style>
+
+
+
+    
+        <p>Explained as: linear model</p>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+        
+        <pre>
+Features with largest coefficients per class.
+Caveats:
+1. Be careful with features which are not
+   independent - weights don't show their importance.
+2. If scale of input features is different then scale of coefficients
+   will also be different, making direct comparison between coefficient values
+   incorrect.
+3. Depending on regularization, rare features sometimes may have high
+   coefficients; this doesn't mean they contribute much to the
+   classification result for most examples.
+</pre>
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+        
+
+    
+        <table class="eli5-weights-wrapper" style="border-collapse: collapse; border: none; margin-bottom: 1.5em;">
+            <tr>
+                
+                    <td style="padding: 0.5em; border: 1px solid black; text-align: center;">
+                        <b>
+    
+        y=c1
+    
+</b>
+
+top features
+                    </td>
+                
+                    <td style="padding: 0.5em; border: 1px solid black; text-align: center;">
+                        <b>
+    
+        y=c234
+    
+</b>
+
+top features
+                    </td>
+                
+                    <td style="padding: 0.5em; border: 1px solid black; text-align: center;">
+                        <b>
+    
+        y=c5
+    
+</b>
+
+top features
+                    </td>
+                
+            </tr>
+            <tr>
+                
+                    
+                        <td style="padding: 0px; border: 1px solid black; vertical-align: top;">
+                            
+                                
+                                    
+                                    
+    
+    <table class="eli5-weights"
+           style="border-collapse: collapse; border: none; margin-top: 0em; table-layout: auto; width: 100%;">
+        <thead>
+        <tr style="border: none;">
+            
+                <th style="padding: 0 1em 0 0.5em; text-align: right; border: none;" title="Feature weights. Note that weights do not account for feature value scales, so if feature values have different scales, features with highest weights might not be the most important.">
+                    Weight<sup>?</sup>
+                </th>
+            
+            <th style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">Feature</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+        
+            <tr style="background-color: hsl(120, 100.00%, 84.91%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.383
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        luis
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 85.38%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.321
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        solicitação
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 86.09%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.230
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        essa informação
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 86.18%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.219
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        processo
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 86.36%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.197
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        sr luis
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 86.36%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.196
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        demanda
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 86.83%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.138
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        solicitação em
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 87.15%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.099
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        de cada
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 87.18%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.095
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        informações
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 87.18%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.094
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        de de
+    </td>
+    
+</tr>
+        
+        
+            <tr style="background-color: hsl(120, 100.00%, 87.18%); border: none;">
+                <td colspan="2" style="padding: 0 0.5em 0 0.5em; text-align: center; border: none; white-space: nowrap;">
+                    <i>&hellip; 10625 more positive &hellip;</i>
+                </td>
+            </tr>
+        
+
+        
+            <tr style="background-color: hsl(0, 100.00%, 87.02%); border: none;">
+                <td colspan="2" style="padding: 0 0.5em 0 0.5em; text-align: center; border: none; white-space: nowrap;">
+                    <i>&hellip; 10904 more negative &hellip;</i>
+                </td>
+            </tr>
+        
+        
+            <tr style="background-color: hsl(0, 100.00%, 87.02%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.115
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        uma
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 86.65%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.160
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        olá
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 86.59%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.168
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        nenhum
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 86.48%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.181
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        de
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 86.39%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.193
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        também
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 85.83%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.263
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        ano
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 85.76%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.272
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        vaga
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 85.64%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.288
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        aproveitamento
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 84.67%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.413
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        anexo os
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 84.63%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.419
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        encaminhamos
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 84.56%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.428
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        em
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 84.45%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.442
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        seguem
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 84.42%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.447
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        dnpm
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 84.33%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.458
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        questionário
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 84.25%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.469
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        prezada
+    </td>
+    
+</tr>
+        
+
+        </tbody>
+    </table>
+
+                                
+                            
+                        </td>
+                    
+                        <td style="padding: 0px; border: 1px solid black; vertical-align: top;">
+                            
+                                
+                                    
+                                    
+    
+    <table class="eli5-weights"
+           style="border-collapse: collapse; border: none; margin-top: 0em; table-layout: auto; width: 100%;">
+        <thead>
+        <tr style="border: none;">
+            
+                <th style="padding: 0 1em 0 0.5em; text-align: right; border: none;" title="Feature weights. Note that weights do not account for feature value scales, so if feature values have different scales, features with highest weights might not be the most important.">
+                    Weight<sup>?</sup>
+                </th>
+            
+            <th style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">Feature</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+        
+            <tr style="background-color: hsl(120, 100.00%, 84.73%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.406
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        sistemas
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 85.72%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.277
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        prezado em
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 87.11%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.103
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        requisitos
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 87.23%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.089
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        territorial
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 87.25%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.086
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        de acompanhamento
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 87.60%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.044
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        reitoria
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 87.66%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.037
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        se no
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 88.02%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +0.994
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        em análise
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 88.13%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +0.981
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        política de
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 88.47%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +0.941
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        documento anexo
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 88.52%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +0.935
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        junto
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 88.56%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +0.931
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        distribuidora
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 88.62%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +0.923
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        referente sua
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 88.65%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +0.920
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        região
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 88.71%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +0.913
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        quanto
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 88.71%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +0.913
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        ainda que
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 88.71%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +0.913
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        norte
+    </td>
+    
+</tr>
+        
+        
+            <tr style="background-color: hsl(120, 100.00%, 88.71%); border: none;">
+                <td colspan="2" style="padding: 0 0.5em 0 0.5em; text-align: center; border: none; white-space: nowrap;">
+                    <i>&hellip; 10963 more positive &hellip;</i>
+                </td>
+            </tr>
+        
+
+        
+            <tr style="background-color: hsl(0, 100.00%, 88.59%); border: none;">
+                <td colspan="2" style="padding: 0 0.5em 0 0.5em; text-align: center; border: none; white-space: nowrap;">
+                    <i>&hellip; 10566 more negative &hellip;</i>
+                </td>
+            </tr>
+        
+        
+            <tr style="background-color: hsl(0, 100.00%, 88.59%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -0.927
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        solicitado
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 88.30%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -0.961
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        coordenadora
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 88.24%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -0.968
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        dados para
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 88.22%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -0.971
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        que estamos
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 88.12%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -0.982
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        do
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 87.74%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.027
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        solicitação encaminhamos
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 87.45%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.062
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        costa
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 87.24%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.088
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        segue as
+    </td>
+    
+</tr>
+        
+
+        </tbody>
+    </table>
+
+                                
+                            
+                        </td>
+                    
+                        <td style="padding: 0px; border: 1px solid black; vertical-align: top;">
+                            
+                                
+                                    
+                                    
+    
+    <table class="eli5-weights"
+           style="border-collapse: collapse; border: none; margin-top: 0em; table-layout: auto; width: 100%;">
+        <thead>
+        <tr style="border: none;">
+            
+                <th style="padding: 0 1em 0 0.5em; text-align: right; border: none;" title="Feature weights. Note that weights do not account for feature value scales, so if feature values have different scales, features with highest weights might not be the most important.">
+                    Weight<sup>?</sup>
+                </th>
+            
+            <th style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">Feature</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+        
+            <tr style="background-color: hsl(120, 100.00%, 80.00%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +2.067
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        questionário
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 80.54%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.988
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        dnpm
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 83.40%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.584
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        solicitação encaminhamos
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 83.49%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.572
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        sic dnpm
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 83.66%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.549
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        ainda não
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 83.72%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.541
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        nenhum
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 83.86%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.521
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        olá
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 85.28%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.334
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        anexo os
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 85.98%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.244
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        patrocínio
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 86.22%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.214
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        odila
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 86.84%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.136
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        senhora odila
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 86.95%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.123
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        documento solicitado
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 87.09%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.106
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        vaga disponível
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 87.18%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.095
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        sim
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 87.28%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.082
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        proad
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 87.31%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.079
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        ti
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 87.33%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.077
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        do sul
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(120, 100.00%, 87.46%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        +1.061
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        ano
+    </td>
+    
+</tr>
+        
+        
+            <tr style="background-color: hsl(120, 100.00%, 87.46%); border: none;">
+                <td colspan="2" style="padding: 0 0.5em 0 0.5em; text-align: center; border: none; white-space: nowrap;">
+                    <i>&hellip; 10190 more positive &hellip;</i>
+                </td>
+            </tr>
+        
+
+        
+            <tr style="background-color: hsl(0, 100.00%, 87.14%); border: none;">
+                <td colspan="2" style="padding: 0 0.5em 0 0.5em; text-align: center; border: none; white-space: nowrap;">
+                    <i>&hellip; 11339 more negative &hellip;</i>
+                </td>
+            </tr>
+        
+        
+            <tr style="background-color: hsl(0, 100.00%, 87.14%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.100
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        ainda que
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 87.13%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.101
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        levantamento
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 86.85%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.135
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        demanda
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 86.77%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.145
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        para que
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 86.10%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.229
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        pelos
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 85.80%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.267
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        providências
+    </td>
+    
+</tr>
+        
+            <tr style="background-color: hsl(0, 100.00%, 85.63%); border: none;">
+    <td style="padding: 0 1em 0 0.5em; text-align: right; border: none;">
+        -1.289
+    </td>
+    <td style="padding: 0 0.5em 0 0.5em; text-align: left; border: none;">
+        essa informação
+    </td>
+    
+</tr>
+        
+
+        </tbody>
+    </table>
+
+                                
+                            
+                        </td>
+                    
+                
+            </tr>
+        </table>
+    
+
+    
+        
+
+
+    
+        
+
+
+    
+        
+
+
+    
+
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+

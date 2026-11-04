@@ -1,0 +1,21 @@
+v4 (Qwen3 + BERT 256)    blocos ['lr_pal', 'svc', 'qwen3', 'extremos', 'bert', 'b256']
+  validacao cruzada 47.91 | 48.62 47.92 48.08 46.54 48.41
+Qwen3 + BERT 512         blocos ['lr_pal', 'svc', 'qwen3', 'extremos', 'bert', 'b512']
+  validacao cruzada 47.86 | 47.72 47.87 47.96 46.79 48.95
+Qwen3 + BERT 256 + 512   blocos ['lr_pal', 'svc', 'qwen3', 'extremos', 'bert', 'b256', 'b512']
+  validacao cruzada 47.87 | 48.30 47.95 48.18 46.34 48.58
+v2 + Qwen3 + BERT 512    blocos ['lr_pal', 'svc', 'emb', 'extremos', 'bert', 'qwen3', 'b512']
+  validacao cruzada 47.88 | 47.75 48.20 48.11 46.37 48.98
+
+validacao cruzada, Qwen3 + BERT 512 x v4: so a v4 acerta 656 | so a outra acerta 645 | McNemar p = 0.7816
+validacao cruzada, Qwen3 + BERT 256 + 512 x v4: so a v4 acerta 419 | so a outra acerta 410 | McNemar p = 0.7811
+validacao cruzada, v2 + Qwen3 + BERT 512 x v4: so a v4 acerta 675 | so a outra acerta 668 | McNemar p = 0.8699
+
+test1 (900 respostas): EP1 48.56%
+  v4 (Qwen3 + BERT 256)    51.56% | contra o EP1: so o EP1 acerta 44, so o EP2 acerta 71 | McNemar p = 0.0153 (exato 0.0150)
+  Qwen3 + BERT 512         50.89% | contra o EP1: so o EP1 acerta 46, so o EP2 acerta 67 | McNemar p = 0.0599 (exato 0.0594)
+  Qwen3 + BERT 256 + 512   50.67% | contra o EP1: so o EP1 acerta 51, so o EP2 acerta 70 | McNemar p = 0.1018 (exato 0.1014)
+  v2 + Qwen3 + BERT 512    50.33% | contra o EP1: so o EP1 acerta 46, so o EP2 acerta 62 | McNemar p = 0.1489 (exato 0.1486)
+  Qwen3 + BERT 512 x v4 no test1: so a v4 acerta 17 | so a outra acerta 11 | McNemar p = 0.3447
+  Qwen3 + BERT 256 + 512 x v4 no test1: so a v4 acerta 14 | so a outra acerta 6 | McNemar p = 0.1175
+  v2 + Qwen3 + BERT 512 x v4 no test1: so a v4 acerta 22 | so a outra acerta 11 | McNemar p = 0.0817

@@ -1,0 +1,16 @@
+bert256_5d sozinho (argmax)         46.23 | 45.36 46.73 46.76 45.74 46.57
+bert256_5d sozinho (RL no escore)   45.10 | 45.83 45.16 44.40 44.77 45.35
+bert5d sozinho (argmax)         45.21 | 45.16 45.24 45.59 44.10 45.97
+bert5d sozinho (RL no escore)   44.36 | 44.21 44.39 44.82 43.93 44.45
+bert da v2 sozinho (RL no escore) 44.14 | 43.97 43.87 43.98 43.70 45.17
+v2                               47.29 | 47.52 47.35 48.03 46.12 47.44
+v2 + bert256_5d                   47.74 | 47.95 47.72 48.26 46.49 48.28
+v2 com bert256_5d no lugar do bert  47.69 | 47.90 48.02 48.26 46.14 48.11
+v2 + bert5d                       47.33 | 47.60 47.40 47.78 46.07 47.81
+v2 com bert5d    no lugar do bert  47.41 | 47.60 47.60 47.86 46.09 47.91
+v2 + todos                       47.74 | 48.00 47.97 48.13 46.34 48.23
+media dos BERTs sozinha          45.17 | 45.76 45.19 45.47 44.08 45.37
+v2 com a media dos BERTs         47.40 | 47.67 47.50 47.74 46.34 47.74
+corr 128x256 0.878 | corr 256 x v2 0.831
+v2 com 128 e 256 no lugar do bert  47.67 | 47.87 47.82 48.28 46.34 48.03
+v2 com a media 128+256 no lugar    47.38 | 47.60 47.60 47.46 46.22 48.01

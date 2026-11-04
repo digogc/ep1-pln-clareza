@@ -1,0 +1,5 @@
+metade 0 (10046 respostas)
+BERT sozinho (argmax): v2 44.66% | TAPT 43.93% | diferenca -0.74
+stacking com o BERT da v2    47.26 | 48.01 48.13 46.59 45.94 47.64
+stacking com o BERT do TAPT  47.45 | 47.86 48.43 46.59 46.44 47.93
+decisao: usar o BERTimbau original no BERT de 5 dobras
