@@ -2,6 +2,8 @@
 
 Classificação da clareza de respostas do e-SIC em três classes: `c1`, `c234` e `c5`.
 
+> **EP2** (stacking do EP1 com modelos de linguagem pré-treinados: BERTimbau ajustado e Qwen3-Embedding; entrega do test2): veja a pasta [`ep2/`](ep2/README.md).
+
 ## Resultado final
 
 | Validação cruzada, 5 dobras, semente 123 | Dobra 1 | Dobra 2 | Dobra 3 | Dobra 4 | Dobra 5 | Média |

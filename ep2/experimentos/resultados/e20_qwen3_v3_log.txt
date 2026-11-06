@@ -1,0 +1,11 @@
+v3 (atual)     blocos ['lr_pal', 'svc', 'emb', 'extremos', 'bert', 'b256']
+  validacao cruzada 47.74 | 47.95 47.72 48.26 46.49 48.28
+v3 com Qwen3   blocos ['lr_pal', 'svc', 'qwen3', 'extremos', 'bert', 'b256']
+  validacao cruzada 47.91 | 48.62 47.92 48.08 46.54 48.41
+
+validacao cruzada, v3 com Qwen3 x v3 (20.092 respostas): so a v3 acerta 446 | so a com Qwen3 acerta 481 | McNemar p = 0.2641 (exato 0.2641)
+
+test1 (900 respostas): EP1 48.56%
+  v3 (atual)     51.00% | contra o EP1: so o EP1 acerta 39, so o EP2 acerta 61 | McNemar p = 0.0357 (exato 0.0352)
+  v3 com Qwen3   51.56% | contra o EP1: so o EP1 acerta 44, so o EP2 acerta 71 | McNemar p = 0.0153 (exato 0.0150)
+  v3 com Qwen3 x v3 no test1: so a v3 acerta 19 | so a com Qwen3 acerta 24 | McNemar p = 0.5419 (exato 0.5424)

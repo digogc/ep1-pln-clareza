@@ -1,0 +1,1 @@
+﻿sondagem do Qwen3-Embedding-0.6B interrompida em 30/10 00:29 apos ~3h40 sem terminar as 3.000 respostas (dividindo a CPU com o fine-tuning). Custo estimado para treino+test1+test2 (~23 mil respostas): mais de 20 h de CPU. Descartado: no EP1, trocar o MiniLM pelo e5-small mudou so 0,18 ponto, sinal de que o bloco de embeddings congelados pesa pouco no stacking.

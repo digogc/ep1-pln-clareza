@@ -1,0 +1,23 @@
+2026-10-29 14:06:53.539191: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-10-29 14:06:59.237841: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+(i) termos com maior peso a favor de cada classe:
+  c1: luis, solicitação, essa informação, processo, sr luis, demanda, solicitação em, de cada, informações, de de, anteriormente, que solicitação, inss, distribuição, que todos
+  c234: sistemas, prezado em, requisitos, territorial, de acompanhamento, reitoria, se no, em análise, política de, documento anexo, junto, distribuidora, referente sua, região, quanto
+  c5: questionário, dnpm, solicitação encaminhamos, sic dnpm, ainda não, nenhum, olá, anexo os, patrocínio, odila, senhora odila, documento solicitado, vaga disponível, sim, proad
+
+(ii) exemplos de interpretacao local:
+  [acerto] real c1 -> previsto c1 (0.671): <BIAS> (+0.13), solicitação (+0.09), reclamações (+0.07), compreender (+0.07), informações (+0.06), com atendimento (+0.06)
+  [acerto] real c234 -> previsto c234 (0.618): pela gerência (+0.04), combinado com (+0.04), senhoria poderá (+0.04), decreto 7724 (+0.04), 15 (+0.04), conab (+0.04)
+  [acerto] real c5 -> previsto c5 (0.678): olá (+0.19), para cargo (+0.11), sim (+0.10), vacância (+0.08), aposentadoria (+0.08), razão (+0.07)
+  [erro] real c234 -> previsto c1 (0.746): em nosso (+0.14), <BIAS> (+0.13), asp (+0.12), realize (+0.09), de dados (+0.08), http www2 (+0.08)
+  [erro] real c5 -> previsto c234 (0.628): memorando (+0.42), memorando nº (+0.25), anexo (+0.13), encaminhamos (+0.13), nº (+0.09), em (+0.07)
+  [erro] real c234 -> previsto c5 (0.726): prezada (+0.08), institucional (+0.08), tel (+0.07), documentação solicitada (+0.06), senhora (+0.05), departamento de (+0.05)
+
+(iii) matriz de confusao do modelo final (fora da dobra):
+previsto    c1  c234    c5
+real                      
+c1        3284  1572  1491
+c234      2131  2203  2519
+c5        1271  1606  4015
+linhas com texto repetido e rotulos conflitantes: 1935 | acerto nelas: 0.4212 | nas demais: 0.4784
+13 casos de erro gravados em resultados/analise/erros_casos.txt

@@ -1,0 +1,13 @@
+modelos-base lidos de bases_stacking.npz
+
+acuracia em validacao cruzada de 5 dobras (semente 123):
+                                     dobra 1  dobra 2  dobra 3  dobra 4  dobra 5  media
+baseline oficial                       45.91    45.28    45.52    44.77    46.22  45.54
+BERTimbau sozinho                      43.89    45.16    45.52    43.73    46.09  44.88
+stacking EP1 (4 blocos)                46.68    47.23    47.39    45.79    47.54  46.92
+stacking EP2 (4 blocos + BERTimbau)    47.52    47.35    48.03    46.12    47.44  47.29
+respostas do treino em que so um acerta: EP2 724 x EP1 650
+
+modelo usado nas planilhas: ['lr_pal', 'svc', 'emb', 'extremos', 'bert']
+test2 rotulado em ep2/entrega/test2.xlsx | distribuicao: {'c1': 310, 'c234': 231, 'c5': 356}
+tempo total 0.1 min

@@ -1,0 +1,6 @@
+metade 0: 10046 respostas (6620 c1/c5)
+modelo         sinal c1xc5 | 3 classes (RL no escore) | corr. com v2
+v2 (ce)         65.59%     |  43.87%                | 1.000
+ordinal_ep1     64.35%     |  43.41%                | 0.900
+lora16          64.98%     |  43.24%                | 0.925
+media dos escores: 43.89% | todos os escores juntos na RL: 43.82%

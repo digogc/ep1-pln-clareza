@@ -1,0 +1,7 @@
+metade 0: 10046 respostas (6620 c1/c5)
+modelo         sinal c1xc5 | 3 classes (RL no escore) | corr. com v2
+v2 (ce)         65.59%     |  43.87%                | 1.000
+tapt            66.00%     |  44.03%                | 0.928
+tapt_ep1        64.35%     |  41.82%                | 0.869
+len256_ep1      65.62%     |  43.04%                | 0.836
+media dos escores: 44.12% | todos os escores juntos na RL: 43.91%

@@ -1,0 +1,15 @@
+representacoes prontas (101s)
+  lr_pal pronto (83s)
+  svc pronto (67s)
+  emb pronto (19s)
+  extremos pronto (27s)
+AVISO: previsoes do BERT ainda nao existem (rode 01_bert_finetune.py); seguindo sem ele
+
+acuracia em validacao cruzada de 5 dobras (semente 123):
+                         dobra 1  dobra 2  dobra 3  dobra 4  dobra 5  media
+baseline oficial           45.91    45.28    45.52    44.77    46.22  45.54
+stacking EP1 (4 blocos)    46.68    47.23    47.39    45.79    47.54  46.92
+
+modelo usado nas planilhas: ['lr_pal', 'svc', 'emb', 'extremos']
+test2 rotulado em ep2/entrega/test2.xlsx | distribuicao: {'c1': 326, 'c234': 219, 'c5': 352}
+tempo total 6.0 min

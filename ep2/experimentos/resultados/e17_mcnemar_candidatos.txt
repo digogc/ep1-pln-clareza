@@ -1,0 +1,6 @@
+v2: acuracia no test1 EP1 48.56% | candidato 50.44%
+  so o EP1 acerta 24 | so o candidato acerta 41
+  McNemar qui-quadrado (com correcao) p = 0.0472 | exato p = 0.0464
+v2 + bert256_5d: acuracia no test1 EP1 48.56% | candidato 51.00%
+  so o EP1 acerta 39 | so o candidato acerta 61
+  McNemar qui-quadrado (com correcao) p = 0.0357 | exato p = 0.0352

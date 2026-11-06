@@ -1,0 +1,8 @@
+bert5d_ep1 sozinho (argmax)         43.42 | 43.05 42.45 44.40 42.16 45.05
+bert5d_ep1 sozinho (RL no escore)   43.18 | 42.75 42.08 44.67 42.63 43.78
+bert da v2 sozinho (RL no escore) 44.14 | 43.97 43.87 43.98 43.70 45.17
+v2                               47.29 | 47.52 47.35 48.03 46.12 47.44
+v2 + bert5d_ep1                   47.29 | 47.40 47.47 48.08 46.04 47.46
+v2 com bert5d_ep1 no lugar do bert  47.06 | 46.70 47.13 47.21 46.24 48.01
+media dos BERTs sozinha          44.38 | 43.94 44.09 44.57 43.98 45.32
+v2 com a media dos BERTs         47.12 | 46.95 47.40 47.69 46.04 47.54

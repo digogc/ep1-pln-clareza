@@ -1,0 +1,7 @@
+﻿fila 4 trocada pela 5 em 10/30/2026 14:58:42
+inicio 10/30/2026 14:58:44
+fila 5 reiniciada (pooler copiado para o modelo do TAPT) 10/30/2026 15:00:47
+inicio 10/30/2026 15:00:48
+fine-tuning do TAPT na metade 0 pronto 10/30/2026 17:16:12
+decisao do TAPT gravada 10/30/2026 17:20:47
+BERT de 5 dobras pronto 10/31/2026 10:54:17

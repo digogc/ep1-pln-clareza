@@ -1,0 +1,6 @@
+prompt cidadao: 400 respostas em 13.8 min = 0.48 respostas/s | massa media nos digitos 1-5: 1.000
+  distribuicao da nota mais provavel: [ 12   3 131   3 251]
+  Spearman com o rotulo: LLM 0.165 | BERT da v2 0.233 | LLM x BERT 0.119
+  RL (5 dobras nas 400): LLM 40.50 | 40.00 38.75 36.25 45.00 42.50
+                         BERT 40.75 | 37.50 45.00 38.75 40.00 42.50
+                   BERT + LLM 43.00 | 38.75 45.00 35.00 43.75 52.50

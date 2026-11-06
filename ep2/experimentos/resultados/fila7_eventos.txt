@@ -1,0 +1,3 @@
+﻿inicio 11/02/2026 02:40:38
+BERT de 512 tokens em 5 dobras pronto 11/03/2026 15:43:27
+fila 7 parada para o BERT 256 em 10 dobras (pedido do usuario) 11/03/2026 16:22:08
