@@ -1,1 +1,3 @@
 ﻿inicio 11/03/2026 16:22:20
+BERT de 256 tokens em 10 dobras pronto 11/06/2026 02:06:49
+fila 8 concluida 11/06/2026 07:10:35

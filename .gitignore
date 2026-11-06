@@ -32,3 +32,6 @@ ep2/cache/
 # cache de embeddings (90 MB, recalculavel) e exemplos de prompt com respostas rotuladas do treino
 ep2/experimentos/cache/
 ep2/experimentos/resultados/llm/
+# matriz da validacao aninhada do e22 (7 MB, recalculavel em ~2 h20) e progresso do joblib
+ep2/experimentos/resultados/e22_interno.npz
+ep2/experimentos/resultados/e22_execucao.txt

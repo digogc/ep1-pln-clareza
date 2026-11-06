@@ -41,8 +41,9 @@ O modelo foi construído em versões, cada uma validada no treino antes de subst
 - **No stacking, essa diferença vira ganho.** No treino, o EP2 passa a acertar 1.283 respostas que o EP1 errava e passa a errar 1.084 que o EP1 acertava.
 
 **Outras abordagens avaliadas e não adotadas** (detalhes e números na seção 4):
-- variações do BERT: LoRA, pré-treino adaptativo à tarefa (TAPT), objetivo ordinal, 512 subpalavras e 10 dobras;
+- variações do BERT: LoRA, pré-treino adaptativo à tarefa (TAPT), objetivos ordinal e de extremos, 512 subpalavras e 10 dobras;
 - blocos extras no stacking: vizinhos mais próximos (kNN) e 34 atributos escritos à mão;
+- todas as 32.767 combinações de 15 blocos no stacking;
 - meta-classificadores não lineares;
 - um LLM local (Qwen3-1.7B) em zero-shot.
 
@@ -72,7 +73,7 @@ O modelo foi construído em versões, cada uma validada no treino antes de subst
 | Comprimento máximo (cabeça + cauda) | {128, 256, 512} subpalavras |
 | Forma de ajuste | {fine-tuning completo, LoRA com posto 16} |
 | Camadas congeladas | {0, 4, 6, 8} (além dos embeddings) |
-| Objetivo de treino | {entropia cruzada de 3 classes, ordinal (um escore com alvo 0 / 0,5 / 1)} |
+| Objetivo de treino | {entropia cruzada de 3 classes, ordinal (um escore com alvo 0 / 0,5 / 1), extremos (escore c1 × c5 treinado só nessas duas classes)} |
 | Taxa de aprendizado | 3e-5 (fine-tuning) e 3e-4 (LoRA), com aquecimento linear em 10% dos passos e decaimento linear |
 | Épocas | {1, 2} |
 | Lote | 16, com ou sem agrupamento dos lotes por tamanho do texto (só muda a velocidade) |
@@ -90,7 +91,8 @@ O modelo foi construído em versões, cada uma validada no treino antes de subst
 
 | Parâmetro | Valores |
 |---|---|
-| Blocos candidatos | os da v2 + {BERT 128 de 5 dobras, BERT 256, BERT 512, BERTs da 1ª época, Qwen3 (no lugar do MiniLM ou junto dele), 34 atributos escritos à mão, kNN sobre TF-IDF, kNN sobre MiniLM, LLM local} |
+| Blocos candidatos | os da v2 + {BERT 128 de 5 dobras, BERT 256 de 5 e de 10 dobras, BERT 512, BERT ordinal, BERT de extremos, BERTs da 1ª época, Qwen3 (no lugar do MiniLM ou junto dele), 34 atributos escritos à mão, kNN sobre TF-IDF, kNN sobre MiniLM, LLM local} |
+| Combinações de blocos | 24 configurações escolhidas à mão e, depois, todos os 32.767 subconjuntos de 15 blocos |
 | Meta-classificador | {regressão logística, LightGBM, HistGradientBoosting} |
 | `C` da regressão logística do meta | {0,01; 0,03; 0,1; 0,3; 1} |
 | Ajuste dos vieses de classe para a acurácia | {não, sim (escolhidos em validação cruzada interna)} |
@@ -126,9 +128,20 @@ Cada fine-tuning completo do BERT leva de 6 a ~60 h em CPU (seção 6), por isso
 | `C` do meta (v3) | 0,01 / 0,03 / 0,1 / 0,3 / 1: 47,76 / 47,75 / 47,74 / 47,75 / 47,72% | 0,1 (diferença desprezível) |
 | Vieses de classe ajustados (v2 / v3) | 47,01 / 47,55% (contra 47,29 / 47,74%) | não |
 | LLM local Qwen3-1.7B (int4, GPU integrada), zero-shot, probabilidades das notas 1 a 5 (piloto em 2.000 respostas) | sozinho 34,55%; v2 + LLM: +0,45 ± 0,44 ponto | não seguiu: ganho incerto e ~13 h de GPU para o conjunto todo |
-| 10 dobras no BERT 256 (cada modelo treina com 90% dos dados) | em andamento; na 1ª dobra, 45,57% contra 45,27% do BERT de 5 dobras nas mesmas 2.010 respostas (p = 0,78) | a decidir pela validação cruzada do stacking |
+| 10 dobras no BERT 256 (cada modelo treina com 90% dos dados; hipótese levantada em aula) | BERT sozinho **46,72%** contra 46,23% do de 5 dobras (melhor em 4 das 5 dobras; McNemar p = 0,083) e acima do 512 (46,42%); no lugar do 256 de 5 dobras na v4: 47,73% (contra 47,91%; melhor em 2 das 5 dobras) | não entra: o ganho do BERT sozinho não chega ao stacking |
+| BERT ordinal e BERT de extremos (2 dobras) como blocos extras | efeito médio nas 32.767 combinações: −0,01 e +0,00 ponto | não entram |
 
-**Busca de combinações e otimismo da seleção.** Testamos 24 configurações de stacking só com blocos já prontos. Quando se escolhe a melhor entre muitas, a média dela na validação cruzada é otimista. Por isso estimamos, com **validação cruzada aninhada**, quanto rende o procedimento "escolher a configuração com a maior média": em cada dobra externa, a escolha é feita só com as outras 4. O procedimento rendeu 47,60%, abaixo dos 47,74% da v3 fixa. Ou seja, diferenças de 0,1–0,2 ponto entre configurações são da ordem do ruído de seleção. Por isso as trocas de versão exigiram ganho em quase todas as dobras.
+**Busca de combinações e otimismo da seleção.** Quando se escolhe a melhor entre muitas configurações, a média dela na validação cruzada é otimista. Por isso estimamos, com **validação cruzada aninhada**, quanto rende o procedimento "escolher a configuração com a maior média": em cada dobra externa, a escolha é feita só com as outras 4 e avaliada na que ficou de fora.
+- **24 configurações escolhidas à mão** (blocos, `C` do meta, meta não linear, vieses): o procedimento rendeu 47,60%, abaixo dos 47,74% da v3 fixa.
+- **Todos os 32.767 subconjuntos de 15 blocos**, depois que o BERT de 10 dobras terminou (`e22_todas_combinacoes.py`, ~4 h em 8 processos):
+  - a melhor combinação teve **48,12%** (+0,21 sobre a v4) com 9 blocos: RL e SVM sobre TF-IDF, extremos, MiniLM, Qwen3, BERT 128 de 2 dobras, BERT 256 de 5 dobras, BERT 512 e BERT de extremos;
+  - ela ganha da v4 em só 3 das 5 dobras, e a diferença nas previsões fora da dobra não é significativa (494 × 452 acertos exclusivos; p = 0,18);
+  - a v4 fica em 208º lugar; as 25 melhores ficam entre 47,98 e 48,12%;
+  - o procedimento aninhado rendeu de novo **47,60%**, abaixo dos 47,91% da v4 fixa, e cada dobra externa escolheu uma combinação diferente;
+  - pela regra fixada antes (ganho ≥ 0,2 ponto, em pelo menos 4 das 5 dobras, aninhado ≥ v4), a v4 foi mantida.
+- **Efeito médio de cada bloco** (média das combinações com ele menos a das sem ele): RL sobre TF-IDF +0,35; SVM +0,27; BERT 512 +0,20; BERT 256 de 10 dobras +0,18; de 5 dobras +0,16; kNN sobre MiniLM +0,12; Qwen3 +0,10. BERT 128, BERT ordinal, BERT de extremos, MiniLM e atributos ficam perto de zero, e os 15 blocos juntos dão 47,69%.
+
+Ou seja, diferenças de 0,1–0,2 ponto entre configurações são da ordem do ruído de seleção. Por isso as trocas de versão exigiram ganho em quase todas as dobras.
 
 Um LLM via API (Claude), com várias estratégias de prompt e garantias contra vazamento, ficou implementado (`ep2/experimentos/codigo/e06_llm.py`), mas não foi executado nesta versão.
 
@@ -170,7 +183,7 @@ Um LLM via API (Claude), com várias estratégias de prompt e garantias contra v
   - cada BERT prevê pela média dos logits dos modelos de cada dobra;
   - o meta-classificador é treinado sobre as previsões fora da dobra.
 - **Custo e infraestrutura** (notebook com i5-1135G7 de 4 núcleos, 16 GB de RAM e GPU integrada Iris Xe):
-  - o fine-tuning roda na CPU: o BERT 256 de 5 dobras levou cerca de 39 h;
+  - o fine-tuning roda na CPU: o BERT 256 de 5 dobras levou cerca de 39 h, e o de 10 dobras (já com lotes agrupados), cerca de 58 h;
   - agrupamos os lotes por tamanho do texto, como o `group_by_length` do Hugging Face: lotes de textos de tamanho parecido precisam de menos preenchimento;
   - isso não muda o que o modelo aprende, mas acelera o BERT 256 de 1,16 para 1,72 textos/s (+48%), e com isso o BERT 512 custou o mesmo que o 256 sem agrupamento;
   - as previsões (validação, test1, test2) rodam na GPU integrada via OpenVINO em FP16, a 22 textos/s contra ~7 na CPU, e a CPU segue treinando a dobra seguinte;

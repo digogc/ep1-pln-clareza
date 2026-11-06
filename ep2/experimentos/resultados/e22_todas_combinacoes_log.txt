@@ -1,0 +1,76 @@
+fase 1: 32767 combinacoes de 15 blocos, validacao cruzada simples (92 min)
+
+v4 (referencia): 47.91 | 48.62 47.92 48.08 46.54 48.41  | posicao 208 de 32767
+
+25 melhores (media | dobras 1-5 | dobras melhores que a v4):
+  1. 48.12 | 48.59 48.17 48.58 46.37 48.90 (3/5)  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + MiniLM + Qwen3 + BERT 128 (2d) + BERT 256 (5d) + BERT 512 + BERT extremos
+  2. 48.10 | 47.45 48.37 48.73 47.44 48.51 (4/5)  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + Qwen3 + atributos + kNN MiniLM + BERT 256 (5d) + BERT 256 (10d) + BERT 512 + BERT ordinal + BERT extremos
+  3. 48.07 | 47.65 48.82 48.53 46.79 48.58 (4/5)  RL TF-IDF + MiniLM + Qwen3 + kNN MiniLM + BERT 128 (2d) + BERT 128 (5d) + BERT 256 (5d) + BERT 512
+  4. 48.07 | 48.40 48.25 48.31 46.49 48.90 (3/5)  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + MiniLM + Qwen3 + BERT 128 (2d) + BERT 256 (5d) + BERT 512 + BERT ordinal + BERT extremos
+  5. 48.05 | 47.37 48.37 48.73 47.26 48.53 (4/5)  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + Qwen3 + atributos + kNN MiniLM + BERT 128 (2d) + BERT 128 (5d) + BERT 256 (5d) + BERT 256 (10d) + BERT 512 + BERT ordinal + BERT extremos
+  6. 48.05 | 48.44 48.20 48.31 46.39 48.93 (3/5)  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + MiniLM + Qwen3 + BERT 256 (5d) + BERT 512 + BERT ordinal + BERT extremos
+  7. 48.05 | 47.33 48.47 48.61 47.24 48.61 (4/5)  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + Qwen3 + atributos + kNN MiniLM + BERT 128 (5d) + BERT 256 (5d) + BERT 256 (10d) + BERT 512 + BERT ordinal + BERT extremos
+  8. 48.03 | 47.60 48.15 48.53 47.31 48.56 (4/5)  SVM TF-IDF + Qwen3 + kNN MiniLM + BERT 128 (2d) + BERT 128 (5d) + BERT 256 (5d) + BERT 256 (10d) + BERT 512
+  9. 48.02 | 48.52 48.15 48.33 46.34 48.78 (3/5)  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + MiniLM + Qwen3 + BERT 256 (5d) + BERT 512 + BERT extremos
+ 10. 48.02 | 47.97 48.32 47.93 46.52 49.35 (2/5)  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + MiniLM + Qwen3 + BERT 512 + BERT extremos
+ 11. 48.02 | 47.62 48.89 48.46 46.52 48.61 (3/5)  RL TF-IDF + Qwen3 + kNN MiniLM + BERT 128 (5d) + BERT 256 (5d) + BERT 512 + BERT ordinal
+ 12. 48.01 | 48.07 48.30 47.98 46.59 49.13 (3/5)  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + MiniLM + Qwen3 + BERT 128 (5d) + BERT 512 + BERT extremos
+ 13. 48.01 | 47.50 48.17 48.58 47.24 48.56 (4/5)  SVM TF-IDF + Qwen3 + kNN MiniLM + BERT 128 (2d) + BERT 256 (5d) + BERT 256 (10d) + BERT 512
+ 14. 48.00 | 47.37 48.27 48.61 47.39 48.38 (3/5)  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + Qwen3 + atributos + kNN MiniLM + BERT 128 (2d) + BERT 256 (5d) + BERT 256 (10d) + BERT 512 + BERT ordinal + BERT extremos
+ 15. 48.00 | 47.35 48.74 48.76 46.62 48.56 (4/5)  RL TF-IDF + MiniLM + Qwen3 + kNN MiniLM + kNN TF-IDF + BERT 128 (2d) + BERT 128 (5d) + BERT 256 (5d) + BERT 512
+ 16. 48.00 | 47.35 48.40 48.41 47.54 48.31 (3/5)  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + Qwen3 + atributos + kNN MiniLM + BERT 128 (2d) + BERT 256 (10d) + BERT 512 + BERT ordinal + BERT extremos
+ 17. 48.00 | 47.40 48.42 48.61 47.21 48.36 (3/5)  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + Qwen3 + atributos + kNN MiniLM + BERT 128 (5d) + BERT 256 (5d) + BERT 256 (10d) + BERT 512 + BERT extremos
+ 18. 48.00 | 47.90 48.25 48.06 46.49 49.30 (2/5)  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + MiniLM + Qwen3 + BERT 512 + BERT ordinal + BERT extremos
+ 19. 48.00 | 47.62 48.67 48.38 46.69 48.63 (4/5)  RL TF-IDF + extremos TF-IDF + Qwen3 + kNN MiniLM + BERT 128 (5d) + BERT 256 (5d) + BERT 512 + BERT ordinal
+ 20. 47.99 | 47.40 48.27 48.68 47.31 48.31 (3/5)  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + Qwen3 + atributos + kNN MiniLM + BERT 128 (2d) + BERT 128 (5d) + BERT 256 (5d) + BERT 256 (10d) + BERT 512 + BERT extremos
+ 21. 47.99 | 47.62 48.10 48.46 47.21 48.58 (4/5)  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + Qwen3 + kNN MiniLM + BERT 128 (2d) + BERT 128 (5d) + BERT 256 (5d) + BERT 256 (10d) + BERT 512
+ 22. 47.99 | 48.59 48.10 48.03 46.76 48.48 (3/5)  RL TF-IDF + SVM TF-IDF + BERT 128 (2d) + BERT 128 (5d) + BERT 256 (5d) + BERT 256 (10d) + BERT 512 + BERT extremos
+ 23. 47.99 | 47.28 48.52 48.51 47.16 48.48 (4/5)  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + MiniLM + Qwen3 + kNN MiniLM + BERT 128 (5d) + BERT 256 (10d) + BERT 512
+ 24. 47.99 | 48.62 48.25 48.03 46.32 48.73 (2/5)  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + MiniLM + Qwen3 + BERT 128 (5d) + BERT 256 (5d) + BERT 512 + BERT ordinal + BERT extremos
+ 25. 47.98 | 47.05 47.67 49.25 47.81 48.13 (2/5)  RL TF-IDF + atributos + kNN MiniLM + kNN TF-IDF + BERT 256 (5d) + BERT 256 (10d) + BERT ordinal + BERT extremos
+
+melhor combinacao por numero de blocos:
+   1 blocos: 46.62 | 46.98 46.83 46.99 45.45 46.84  RL TF-IDF
+   2 blocos: 47.74 | 47.57 47.90 47.93 46.81 48.46  RL TF-IDF + BERT 512
+   3 blocos: 47.85 | 47.67 48.22 48.08 46.44 48.86  RL TF-IDF + Qwen3 + BERT 512
+   4 blocos: 47.93 | 48.47 48.07 47.96 46.99 48.16  RL TF-IDF + BERT 256 (5d) + BERT 512 + BERT extremos
+   5 blocos: 47.95 | 48.44 48.15 48.06 46.79 48.31  RL TF-IDF + extremos TF-IDF + BERT 256 (5d) + BERT 512 + BERT extremos
+   6 blocos: 47.96 | 47.77 48.27 48.38 47.16 48.21  RL TF-IDF + kNN MiniLM + BERT 256 (10d) + BERT 512 + BERT ordinal + BERT extremos
+   7 blocos: 48.02 | 47.97 48.32 47.93 46.52 49.35  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + MiniLM + Qwen3 + BERT 512 + BERT extremos
+   8 blocos: 48.07 | 47.65 48.82 48.53 46.79 48.58  RL TF-IDF + MiniLM + Qwen3 + kNN MiniLM + BERT 128 (2d) + BERT 128 (5d) + BERT 256 (5d) + BERT 512
+   9 blocos: 48.12 | 48.59 48.17 48.58 46.37 48.90  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + MiniLM + Qwen3 + BERT 128 (2d) + BERT 256 (5d) + BERT 512 + BERT extremos
+  10 blocos: 48.07 | 48.40 48.25 48.31 46.49 48.90  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + MiniLM + Qwen3 + BERT 128 (2d) + BERT 256 (5d) + BERT 512 + BERT ordinal + BERT extremos
+  11 blocos: 48.10 | 47.45 48.37 48.73 47.44 48.51  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + Qwen3 + atributos + kNN MiniLM + BERT 256 (5d) + BERT 256 (10d) + BERT 512 + BERT ordinal + BERT extremos
+  12 blocos: 48.05 | 47.33 48.47 48.61 47.24 48.61  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + Qwen3 + atributos + kNN MiniLM + BERT 128 (5d) + BERT 256 (5d) + BERT 256 (10d) + BERT 512 + BERT ordinal + BERT extremos
+  13 blocos: 48.05 | 47.37 48.37 48.73 47.26 48.53  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + Qwen3 + atributos + kNN MiniLM + BERT 128 (2d) + BERT 128 (5d) + BERT 256 (5d) + BERT 256 (10d) + BERT 512 + BERT ordinal + BERT extremos
+  14 blocos: 47.85 | 47.28 48.42 48.56 46.74 48.28  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + MiniLM + Qwen3 + atributos + kNN MiniLM + BERT 128 (2d) + BERT 128 (5d) + BERT 256 (5d) + BERT 256 (10d) + BERT 512 + BERT ordinal + BERT extremos
+  15 blocos: 47.69 | 46.98 47.67 48.41 47.39 48.01  RL TF-IDF + SVM TF-IDF + extremos TF-IDF + MiniLM + Qwen3 + atributos + kNN MiniLM + kNN TF-IDF + BERT 128 (2d) + BERT 128 (5d) + BERT 256 (5d) + BERT 256 (10d) + BERT 512 + BERT ordinal + BERT extremos
+
+efeito medio de cada bloco (media das combinacoes com ele - sem ele; presenca entre as 1.000 melhores):
+  RL TF-IDF          +0.35 pp | presente em 92% das 1.000 melhores
+  SVM TF-IDF         +0.27 pp | presente em 50% das 1.000 melhores
+  extremos TF-IDF    +0.07 pp | presente em 56% das 1.000 melhores
+  MiniLM             +0.02 pp | presente em 44% das 1.000 melhores
+  Qwen3              +0.10 pp | presente em 72% das 1.000 melhores
+  atributos          -0.01 pp | presente em 35% das 1.000 melhores
+  kNN MiniLM         +0.12 pp | presente em 74% das 1.000 melhores
+  kNN TF-IDF         +0.05 pp | presente em 16% das 1.000 melhores
+  BERT 128 (2d)      +0.00 pp | presente em 47% das 1.000 melhores
+  BERT 128 (5d)      +0.02 pp | presente em 51% das 1.000 melhores
+  BERT 256 (5d)      +0.16 pp | presente em 63% das 1.000 melhores
+  BERT 256 (10d)     +0.18 pp | presente em 63% das 1.000 melhores
+  BERT 512           +0.20 pp | presente em 83% das 1.000 melhores
+  BERT ordinal       -0.01 pp | presente em 44% das 1.000 melhores
+  BERT extremos      +0.00 pp | presente em 57% das 1.000 melhores
+
+melhor na validacao cruzada: 'RL TF-IDF + SVM TF-IDF + extremos TF-IDF + MiniLM + Qwen3 + BERT 128 (2d) + BERT 256 (5d) + BERT 512 + BERT extremos' (48.12 | 48.59 48.17 48.58 46.37 48.90)
+melhor x v4 nas previsoes fora da dobra: so a melhor acerta 494, so a v4 452, McNemar exato p = 0.182
+
+fase 2: validacao cruzada aninhada (141 min)
+  aninhado, dobra 1: escolheu 'RL TF-IDF + SVM TF-IDF + extremos TF-IDF + Qwen3 + kNN MiniLM + BERT 256 (10d) + BERT ordinal' (interno 48.26) -> 47.65
+  aninhado, dobra 2: escolheu 'RL TF-IDF + SVM TF-IDF + BERT 128 (5d) + BERT 256 (10d) + BERT 512 + BERT extremos' (interno 48.07) -> 47.67
+  aninhado, dobra 3: escolheu 'RL TF-IDF + SVM TF-IDF + extremos TF-IDF + Qwen3 + BERT 128 (2d) + BERT 256 (5d) + BERT 512' (interno 48.01) -> 48.18
+  aninhado, dobra 4: escolheu 'RL TF-IDF + SVM TF-IDF + extremos TF-IDF + MiniLM + Qwen3 + BERT 128 (5d) + BERT 256 (5d) + BERT 512' (interno 48.41) -> 46.49
+  aninhado, dobra 5: escolheu 'RL TF-IDF + extremos TF-IDF + MiniLM + BERT 128 (5d) + BERT 256 (5d) + BERT 256 (10d) + BERT 512 + BERT ordinal + BERT extremos' (interno 47.94) -> 47.98
+procedimento 'escolher a melhor' (aninhado): 47.60 | 47.65 47.67 48.18 46.49 47.98  | v4: 47.91 | 48.62 47.92 48.08 46.54 48.41
+decisao pela regra fixada: manter a v4
