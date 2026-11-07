@@ -59,6 +59,20 @@ No stacking, cada BERT entra resumido num único escore ordinal, `logit(c5) − 
    - cada BERT prevê pela média dos modelos das dobras;
    - o meta-classificador, treinado nas previsões fora da dobra, combina os 12 números.
 
+**Como cada modelo foi treinado e usado.**
+
+| Modelo | Entrada | O que é treinado | Previsões fora da dobra | Saída para o meta | No test2 | Tempo | Sozinho |
+|---|---|---|---|---|---|---|---|
+| `lr_pal` | TF-IDF de palavras (1–2-gramas) | regressão logística, `C` = 1 | 5 dobras | 3 log-probabilidades | retreinado com todo o treino | ~1 min | 46,49% |
+| `svc` | TF-IDF de palavras (1–2-gramas) + caracteres (2–5-gramas) | SVM linear, `C` = 0,1 | 5 dobras | 3 margens (distâncias aos hiperplanos) | retreinado com todo o treino | ~1 min | 46,22% |
+| `extremos` | o mesmo TF-IDF do `svc` | regressão logística, `C` = 1, só com as respostas `c1` e `c5` | 5 dobras | 1 escore `c1` × `c5` | retreinado com todo o treino | < 1 min | — (68,32% entre `c1` e `c5`) |
+| `qwen3` | embeddings do Qwen3-Embedding-0.6B, congelado (instrução da tarefa, 256 tokens) | só a regressão logística sobre os vetores padronizados, `C` = 0,003 | 5 dobras | 3 log-probabilidades | retreinado com todo o treino | ~2 h para calcular os embeddings, uma vez, na GPU integrada | 43,86% |
+| `bert` | BERTimbau base, 128 subpalavras (cabeça + cauda) | fine-tuning: embeddings e 4 camadas inferiores congeladas, 8 camadas e a cabeça ajustadas; 2 épocas, taxa 3e-5, lote 16 | 2 dobras (metades) | 1 escore `logit(c5) − logit(c1)` | média dos logits dos 2 modelos | ~6 h de CPU | 44,88% |
+| `bert256` | BERTimbau base, 256 subpalavras (cabeça + cauda) | igual ao `bert` | 5 dobras | 1 escore `logit(c5) − logit(c1)` | média dos logits dos 5 modelos | ~39 h de CPU | 46,23% |
+| meta-classificador | os 12 números, padronizados | regressão logística, `C` = 0,1 | 5 dobras (para a avaliação) | a classe final | treinado com as previsões fora da dobra de todo o treino | segundos | **47,91%** |
+
+"Sozinho" é a acurácia em validação cruzada de 5 dobras (classe de maior pontuação), nas mesmas dobras do stacking; o baseline oficial tem 45,54%. O `extremos` não prevê `c234`, por isso não tem acurácia de 3 classes. Nenhum modelo-base passa de 46,5% sozinho, e o stacking chega a 47,91%.
+
 **O que mudou em relação ao EP1.** Os blocos de TF-IDF, o meta-classificador e as dobras continuam os mesmos. Entraram os dois BERTs, e o Qwen3 substituiu o MiniLM.
 
 **Quanto cada bloco contribui.** Validação cruzada da v4 sem um bloco de cada vez (dados do `e22`, seção 4):
