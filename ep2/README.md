@@ -72,6 +72,6 @@ O primeiro gera os `bert_*` (BERT 128, ~6 h). O segundo gera, em `ep2/experiment
 ## Regras do enunciado que o código respeita
 
 - Treino só com o `train.xlsx` (o mesmo do EP1). O test1 e o test2 entram sem rótulos, apenas no vocabulário do TF-IDF e na inferência.
-- Os rótulos do test1 são lidos **somente** para o teste de McNemar: em `04_mcnemar.py` e, nos experimentos, em `e17`, `e20` e `e21`. As escolhas de modelo usam a validação cruzada no treino; a seção 8 do relatório lista todos os candidatos avaliados no test1. O test2 nunca é usado para comparar modelos.
+- Os rótulos do test1 são lidos **somente** para o teste de McNemar: em `04_mcnemar.py` e, nos experimentos, em `e17`, `e20`, `e21` e `e23`. As escolhas de modelo usam a validação cruzada no treino; a seção 8 do relatório lista todos os candidatos avaliados no test1. O test2 nunca é usado para comparar modelos.
 - A entrega contém apenas os rótulos do **test2**. As previsões do test1 ficam em `resultados/test1_ep2.xlsx`, só para o McNemar, e não vão no .zip.
 - Semente 123 em tudo.

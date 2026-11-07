@@ -1,0 +1,11 @@
+v4 (entregue)              blocos ['lr_pal', 'svc', 'qwen3', 'extremos', 'bert', 'b256']
+  validacao cruzada 47.91 | 48.62 47.92 48.08 46.54 48.41
+melhor do e22 (9 blocos)   blocos ['lr_pal', 'svc', 'emb', 'extremos', 'bert', 'qwen3', 'b256', 'b512', 'b_extremos']
+  validacao cruzada 48.12 | 48.59 48.17 48.58 46.37 48.90
+
+validacao cruzada, melhor do e22 x v4: so a v4 acerta 452 | so a outra acerta 494 | McNemar p = 0.1825 (exato 0.1825)
+
+test1 (900 respostas): EP1 48.56%
+  v4 (entregue)              51.56% | contra o EP1: so o EP1 acerta 44, so o EP2 acerta 71 | McNemar p = 0.0153 (exato 0.0150)
+  melhor do e22 (9 blocos)   50.11% | contra o EP1: so o EP1 acerta 53, so o EP2 acerta 67 | McNemar p = 0.2353 (exato 0.2352)
+  melhor do e22 x v4 no test1: so a v4 acerta 20 | so a outra acerta 7 | McNemar p = 0.0209 (exato 0.0192)

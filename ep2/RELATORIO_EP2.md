@@ -237,7 +237,7 @@ Tabela de contingência:
 
 Com p < 0,05, a vantagem do modelo do EP2 sobre o do EP1 é **estatisticamente significativa** no test1. Das 115 respostas em que os dois modelos discordam quanto ao acerto, o EP2 acerta 71 e o EP1, 44.
 
-**Transparência sobre o uso do test1.** Os rótulos do test1 só entraram no McNemar, mas calculamos o teste para seis candidatos ao longo do trabalho:
+**Transparência sobre o uso do test1.** Os rótulos do test1 só entraram no McNemar, mas calculamos o teste para sete candidatos ao longo do trabalho:
 
 | Modelo | Validação cruzada | Test1 | McNemar contra o EP1 |
 |---|---|---|---|
@@ -247,12 +247,14 @@ Com p < 0,05, a vantagem do modelo do EP2 sobre o do EP1 é **estatisticamente s
 | v4 com BERT 512 no lugar do 256 | 47,86% | 50,89% | p = 0,060 |
 | v4 + BERT 512 | 47,87% | 50,67% | p = 0,102 |
 | v2 + Qwen3 + BERT 512 | 47,88% | 50,33% | p = 0,149 |
+| Melhor das 32.767 combinações (9 blocos; seção 4) | 48,12% | 50,11% | p = 0,235 |
 
 Leituras:
-- **Critério de escolha.** Todos os modelos foram escolhidos pela validação cruzada no treino. A v4 tem a maior média entre os seis. As três variantes com o BERT 512 foram avaliadas depois da escolha da v4 e não a mudaram.
+- **Critério de escolha.** Todos os modelos foram escolhidos pela validação cruzada no treino. As três variantes com o BERT 512 foram avaliadas depois da escolha da v4 e não a mudaram.
+- **A melhor das 32.767 combinações foi reprovada antes de ser vista no test1.** Ela tem a maior média na validação cruzada (48,12%), mas ganhou da v4 em só 3 das 5 dobras, e o procedimento de escolhê-la rendeu 47,60% na validação aninhada. Avaliada no test1 só depois, a pedido do grupo, ficou em 50,11%, abaixo da v4: a v4 acerta 20 respostas que ela erra, e ela acerta 7 que a v4 erra (p = 0,021). Isso ilustra o otimismo de escolher o máximo entre muitas configurações, que a regra fixada e a validação aninhada já indicavam.
 - **A troca v3 → v4 não seguiu a regra fixada.** A regra da busca de combinações exigia ganho de 0,2 ponto, 4 das 5 dobras melhores e estimativa aninhada acima da v3, e mandava manter a v3: o ganho foi de 0,17 ponto, e a estimativa aninhada ficou em 47,60%. Adotamos a v4 por ter a maior média e ganhar em 4 das 5 dobras, já conhecendo o resultado das duas no test1.
 - **A v4 não é significativamente melhor que a v3.** Na validação cruzada, p = 0,26 (481 × 446 respostas); no test1, p = 0,54.
-- **Correção para múltiplas comparações.** Com Bonferroni para os três candidatos vistos no test1 antes da escolha da v4 (v2, v3, v4), o p da v4 fica em 0,046. Para os seis, fica em 0,092.
+- **Correção para múltiplas comparações.** Com Bonferroni para os três candidatos vistos no test1 antes da escolha da v4 (v2, v3, v4), o p da v4 fica em 0,046. Para os sete, fica em 0,107.
 - **Conclusão.** A superioridade do EP2 sobre o EP1 é consistente: as três versões vão na mesma direção, todas com p < 0,05 sem correção, e a validação cruzada mostra ganho em todas as dobras. A ordem exata entre v3 e v4 está dentro do ruído.
 
 ## 9. Análise
