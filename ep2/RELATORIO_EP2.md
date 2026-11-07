@@ -15,6 +15,27 @@ A tarefa é a mesma do EP1: classificar a clareza de respostas do e-SIC em {`c1`
 - **dois BERTimbau ajustados para a tarefa (fine-tuning)** (`neuralmind/bert-base-portuguese-cased`), um lendo 128 e outro 256 subpalavras da resposta;
 - os **embeddings de sentença do Qwen3-Embedding-0.6B**, no lugar dos do MiniLM usados no EP1.
 
+**De onde partimos: o EP1.**
+- **O que testamos:** no EP1 avaliamos várias famílias de modelos, sempre contra o baseline oficial e nas mesmas dobras:
+  - TF-IDF de palavras e de caracteres com regressão logística, SVM e Naive Bayes;
+  - 87 atributos escritos à mão com LightGBM;
+  - embeddings estáticos (Word2Vec, Doc2Vec, LSA) e uma rede convolucional (TextCNN);
+  - embeddings de sentença congelados (MiniLM e e5-small);
+  - memórias de respostas idênticas e de respostas vizinhas.
+- **O modelo entregue foi um stacking de quatro blocos**, escolhidos passo a passo pela validação cruzada: regressão logística sobre TF-IDF de palavras, SVM sobre palavras e caracteres, regressão logística sobre os embeddings do MiniLM e um classificador `c1` × `c5` treinado só nos extremos.
+- **Desempenho:**
+  - 46,98% na validação cruzada (46,92% quando recalculado no ambiente do EP2, seção 7), contra 45,54% do baseline;
+  - 48,56% no test1.
+- **Duas lições do EP1 orientaram o EP2:**
+  - **Representações pré-treinadas complementam o TF-IDF.** Sozinhos, os embeddings do MiniLM eram fracos (43,08%), mas melhoravam o stacking, porque erram em respostas diferentes das que o TF-IDF erra.
+  - **O BERT ficou pela metade.** Um integrante do grupo (Dimitri) ajustou um BERTimbau no EP1, que acertou 44,97% numa divisão própria (80% treino, 20% teste), mas ele não entrou no stacking a tempo. O modelo tinha sido treinado em 80% do treino, sem previsões fora da dobra para o restante, e a inferência em CPU não terminou no prazo.
+
+**Por que BERT.**
+- **Outros grupos da turma usaram BERT no EP1 com bons resultados.** Isso indicou que ajustar um modelo pré-treinado à tarefa era o caminho mais promissor para o EP2.
+- **É o passo seguinte à primeira lição do EP1.** No fine-tuning, todas as camadas do modelo se adaptam à tarefa, em vez de usar embeddings congelados como o MiniLM.
+- **O BERTimbau foi pré-treinado em português brasileiro.** E já tínhamos um ajuste dele do EP1 como referência: o truncamento cabeça + cauda que usamos é o mesmo do modelo do Dimitri.
+- **O enunciado pede inovação.** TF-IDF com regressão logística, SVM ou Naive Bayes, ou repetir o EP1, não pontuam.
+
 **O modelo final (v4) é um stacking de seis modelos-base**, combinados por um meta-classificador de regressão logística:
 
 1. `lr_pal`: regressão logística sobre TF-IDF de palavras (1–2-gramas);
@@ -26,6 +47,34 @@ A tarefa é a mesma do EP1: classificar a clareza de respostas do e-SIC em {`c1`
 
 No stacking, cada BERT entra resumido num único escore ordinal, `logit(c5) − logit(c1)`, em vez dos três logits. É o mesmo eixo "ruim → bom" do bloco `extremos`, e essa forma foi a melhor na validação cruzada (seção 4).
 
+**Como funciona o stacking.** São dois níveis de modelos, e a arquitetura é a mesma do EP1.
+1. **Nível 0, os modelos-base.** Cada um dos seis modelos lê a resposta e devolve poucos números, 12 no total por resposta:
+   - as pontuações das três classes (`lr_pal`, `svc` e `qwen3`, 3 números cada);
+   - o escore `c1` × `c5` do `extremos` (1 número);
+   - o escore `logit(c5) − logit(c1)` de cada BERT (1 número cada).
+2. **Previsões fora da dobra.** Para o nível 1 aprender sem vazamento, os 12 números de cada resposta do treino vêm de modelos que não viram aquela resposta. O treino é dividido em 5 dobras: cada modelo-base treina em 4 e prevê a quinta. O BERT 128 usa 2 dobras.
+3. **Nível 1, o meta-classificador.** Uma regressão logística (`C` = 0,1) sobre os 12 números padronizados aprende quanto confiar em cada bloco e em que direção. É ela que dá a classe final.
+4. **No test2:**
+   - os modelos sobre TF-IDF e embeddings são retreinados com todo o treino;
+   - cada BERT prevê pela média dos modelos das dobras;
+   - o meta-classificador, treinado nas previsões fora da dobra, combina os 12 números.
+
+**O que mudou em relação ao EP1.** Os blocos de TF-IDF, o meta-classificador e as dobras continuam os mesmos. Entraram os dois BERTs, e o Qwen3 substituiu o MiniLM.
+
+**Quanto cada bloco contribui.** Validação cruzada da v4 sem um bloco de cada vez (dados do `e22`, seção 4):
+
+| Bloco retirado | Acurácia | Diferença | Dobras que pioram |
+|---|---|---|---|
+| nenhum (v4) | 47,91% | — | — |
+| BERT 256 | 47,36% | −0,55 | 5 de 5 |
+| regressão logística sobre TF-IDF | 47,54% | −0,37 | 4 de 5 |
+| Qwen3 | 47,69% | −0,22 | 4 de 5 |
+| SVM | 47,75% | −0,16 | 5 de 5 |
+| extremos | 47,78% | −0,13 | 4 de 5 |
+| BERT 128 | 47,81% | −0,10 | 3 de 5 |
+
+Todos os blocos contribuem, e o BERT 256 é o que mais pesa. Nos pesos do meta-classificador, o escore dele é a entrada de maior peso: +0,24 para `c5` e −0,22 para `c1`, com as entradas padronizadas.
+
 O modelo foi construído em versões, cada uma validada no treino antes de substituir a anterior:
 
 | Versão | Mudança | Validação cruzada |
@@ -35,7 +84,7 @@ O modelo foi construído em versões, cada uma validada no treino antes de subst
 | v3 | + BERTimbau 256 | 47,74% |
 | **v4 (final)** | **Qwen3-Embedding no lugar do MiniLM** | **47,91%** |
 
-**Por que os BERTs ajudam.**
+**Por que os BERTs ajudam (o que os resultados mostram).**
 - **Com 256 subpalavras, o BERT sozinho já passa o baseline.** As respostas são longas: a mediana tem 182 subpalavras, e 63% delas passam de 128. Com 256 subpalavras, o BERTimbau sozinho acerta 46,23%, contra 44,88% com 128 e 45,54% do baseline oficial.
 - **Os BERTs são complementares aos modelos de TF-IDF.** Eles leem a resposta de outro jeito (subpalavras, ordem e contexto) e erram em respostas diferentes.
 - **No stacking, essa diferença vira ganho.** No treino, o EP2 passa a acertar 1.283 respostas que o EP1 errava e passa a errar 1.084 que o EP1 acertava.
@@ -47,7 +96,7 @@ O modelo foi construído em versões, cada uma validada no treino antes de subst
 - meta-classificadores não lineares;
 - um LLM local (Qwen3-1.7B) em zero-shot.
 
-**Dados.** Usamos apenas os arquivos fornecidos: o treino é o mesmo do EP1 (`train.xlsx`), como pede o enunciado, e nenhum dado externo foi usado. Os modelos pré-treinados (BERTimbau, Qwen3) são públicos e foram usados como ponto de partida. Nenhum dado dos conjuntos de teste é usado com rótulo. Cerca de 11% dos textos do test1 (100) e do test2 (106) são idênticos a algum texto do treino. São modelos padrão de resposta dos órgãos (mediana de 13 cópias no treino por texto), ou seja, pedidos diferentes respondidos com o mesmo texto, e não as mesmas linhas.
+**Dados.** Usamos apenas os arquivos fornecidos: o treino é o mesmo do EP1 (`train.xlsx`), como pede o enunciado, e nenhum dado externo foi usado. No início do EP2 chegamos a localizar a referência da base original, publicada com um artigo do próprio professor. Seguindo a orientação dele de usar só o que foi fornecido, ela não foi baixada nem usada. Os modelos pré-treinados (BERTimbau, Qwen3) são públicos e foram usados como ponto de partida. Nenhum dado dos conjuntos de teste é usado com rótulo. Cerca de 11% dos textos do test1 (100) e do test2 (106) são idênticos a algum texto do treino. São modelos padrão de resposta dos órgãos (mediana de 13 cópias no treino por texto), ou seja, pedidos diferentes respondidos com o mesmo texto, e não as mesmas linhas.
 
 ## 3. Pré-processamento
 
@@ -171,6 +220,39 @@ Um LLM via API (Claude), com várias estratégias de prompt e garantias contra v
 - **Qwen3 no lugar do MiniLM:** é a configuração de maior média entre as 24 testadas e ganha em 4 das 5 dobras (+0,17 ponto), mas a vantagem sobre a v3 não é estatisticamente significativa. A troca e o critério estão discutidos na seção 8.
 
 ## 6. Procedimento
+
+**Etapas do EP2, em ordem.**
+1. **Ponto de partida, EP1 (até 04/10):** stacking de quatro blocos (seção 2).
+2. **Preparação (29/10):**
+   - leitura dos arquivos do EP2 e reversão dos escapes do Excel (`_x0096_`), que deixa os textos idênticos aos do EP1;
+   - contagem dos textos dos testes repetidos no treino;
+   - recálculo do stacking do EP1 no ambiente do EP2 (46,92%).
+3. **v2 (29/10):**
+   - fine-tuning do BERTimbau com 128 subpalavras em 2 dobras (~6 h), com o modelo de partida e as camadas congeladas escolhidos por treinos curtos;
+   - escolha da forma de entrada do BERT no stacking (o escore);
+   - resultado: 47,29%. O McNemar contra o EP1 no test1 deu p = 0,047, no limite, e por isso seguimos buscando um ganho mais firme.
+4. **Busca de melhorias (29 e 30/10):**
+   - kNN, 34 atributos escritos à mão, variações do meta-classificador e vieses de classe;
+   - embeddings do Qwen3 e do e5;
+   - LoRA × fine-tuning completo, objetivo ordinal, 256 subpalavras numa metade dos dados e TAPT;
+   - LLM local em zero-shot; o LLM via API ficou implementado, mas não foi executado.
+
+   As variações do BERT foram comparadas na mesma metade de validação.
+5. **Infraestrutura (30/10 em diante):** previsões na GPU integrada, checkpoints retomáveis (o Windows reiniciou sozinho no dia 30) e, depois, lotes agrupados por tamanho.
+6. **BERTs de 5 dobras (31/10 a 03/11):** BERT 128 (31/10), BERT 256 (~39 h, pronto em 02/11) e BERT 512 (03/11).
+7. **v3 (03/11):** pela regra fixada antes (maior média no stacking entre 256, 512 e 256 + 512), entrou o BERT 256. Resultado: 47,74%, com p = 0,036 contra o EP1.
+8. **Combinações e v4 (03/11):**
+   - 24 configurações com validação aninhada; a regra mandava manter a v3;
+   - com o Qwen3 no lugar do MiniLM, a v4 deu 47,91% e p = 0,015, e foi adotada (decisão discutida na seção 8);
+   - três variantes com o BERT 512, vistas depois, não mudaram a escolha;
+   - as versões ficaram registradas em `ep2/versoes/`.
+9. **10 dobras (03 a 06/11):** BERT 256 em 10 dobras (~58 h), hipótese levantada em aula, seguido do BERT ordinal e do BERT de extremos, em 2 dobras.
+10. **Busca exaustiva (06/11):**
+    - todas as 32.767 combinações de 15 blocos, com validação aninhada (~4 h); pela regra, a v4 foi mantida;
+    - a melhor combinação, vista depois no test1, ficou abaixo da v4 (seção 8).
+11. **Análise e teste final:** eli5 e análise de erros (seção 9), McNemar (seção 8) e rotulação do test2 pela v4.
+
+**Como cada etapa foi conduzida:**
 
 - **Semente única:** 123 em todas as divisões e modelos.
 - **Avaliação:** validação cruzada estratificada de 5 dobras sobre as 20.092 respostas do `train.xlsx`; o baseline oficial (TF-IDF + regressão logística) é medido nas mesmas dobras.
